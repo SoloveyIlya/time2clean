@@ -1,0 +1,599 @@
+/* =========================================
+   0. Глобальные стили и обертки
+   ========================================= */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F9F9F9; 
+    overflow-x: hidden;
+}
+
+/* Общая обертка для секций */
+.company-wrapper,
+.saving-time-wrapper,
+.stats-wrapper,
+.order-wrapper {
+    width: 1584px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================
+   1. Секция "О Компании"
+   ========================================= */
+.company-section {
+    width: 100%;
+    padding-top: 34px; 
+    padding-bottom: 120px;
+    background-color: #F9F9F9;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Верхний ряд (Заголовок + Миссия) --- */
+.company-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 59px; 
+}
+
+.page-title {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53px;
+    color: #333333;
+    width: 480px;
+    margin: 0;
+}
+
+.mission-text {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #333333;
+    width: 703px;
+}
+
+/* --- Средний ряд (Цели) --- */
+.company-row-middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 120px;
+}
+
+.goal-left {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #565656;
+    width: 520px;
+}
+
+.goal-right {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #565656;
+    width: 429px;
+}
+
+/* --- Блок "История" --- */
+.history-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 895px;
+}
+
+.history-left-col {
+    width: 650px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.history-headers {
+    height: 150px; 
+    position: relative;
+}
+
+.history-h2 {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53px;
+    color: #333333;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.history-subtitle {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #68B51C;
+    position: absolute;
+    top: 67px;
+    left: 0;
+}
+
+.history-img-box {
+    width: 650px;
+    height: 745px;
+    background: #E8E8E8;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.history-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.history-right-col {
+    width: 773px;
+    display: flex;
+    flex-direction: column;
+    gap: 42px; 
+}
+
+.history-right-col p {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #565656;
+    margin: 0;
+}
+
+/* =========================================
+   2. Секция "Мы экономим ваше время"
+   ========================================= */
+.saving-time-section {
+    width: 100%;
+    padding-bottom: 120px;
+    background-color: #F9F9F9;
+    display: flex;
+    justify-content: center;
+}
+
+.saving-time-wrapper {
+    align-items: center;
+}
+
+.saving-time__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 54px; 
+}
+
+.saving-time__title {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53px;
+    color: #333333;
+    margin-bottom: 14px;
+}
+
+.saving-time__subtitle {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #565656;
+    margin-bottom: 14px;
+}
+
+.saving-time__description {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #565656;
+    max-width: 934px;
+}
+
+.saving-time__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+.saving-time__row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 18px;
+}
+
+.time-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 34px 33px;
+    height: 126px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-sizing: border-box;
+}
+
+.time-card__check {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #333333;
+    flex-shrink: 0;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.time-card__text {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #333333;
+    margin: 0;
+}
+
+.time-card--small {
+    width: 382px;
+}
+
+.time-card--large {
+    width: 516px;
+}
+
+/* =========================================
+   3. Секция Статистики
+   ========================================= */
+.stats-section {
+    width: 100%;
+    padding-bottom: 120px;
+    background-color: #F9F9F9;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Верхний ряд (Особенности) --- */
+.features-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px; 
+}
+
+.feature-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 34px 40px;
+    width: 783px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.feature-card__header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.feature-icon-box {
+    width: 42px;
+    height: 42px;
+    background: #68B51C;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.feature-icon-box img {
+    width: 22px;
+    height: 22px;
+}
+
+.feature-card__title {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #333333;
+    margin: 0;
+}
+
+.feature-card__text {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #565656;
+    margin: 0;
+}
+
+/* --- Нижний ряд (Статистика) --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 34px;
+}
+
+.stat-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 34px 40px;
+    height: 174px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    box-sizing: border-box;
+}
+
+.stat-number {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53px;
+    color: #68B51C;
+}
+
+.stat-label {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #565656;
+}
+
+/* --- Кнопка --- */
+.stats-action-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background: #68B51C;
+    border-radius: 10px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.stats-action-btn:hover {
+    background: #5aa016;
+}
+
+/* =========================================
+   4. Секция Заказа (CTA)
+   ========================================= */
+.order-section {
+    width: 100%;
+    background-color: #F9F9F9;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 120px;
+}
+
+.cta-banner {
+    position: relative;
+    width: 100%;
+    height: 356px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FFFFFF;
+    flex-shrink: 0;
+}
+
+.cta-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.cta-title {
+    position: relative;
+    z-index: 2;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 53px;
+    margin-top: 64px;
+    margin-left: 34px;
+    max-width: 600px;
+}
+
+.cta-btn {
+    position: absolute;
+    z-index: 2;
+    bottom: 30px;
+    left: 34px;
+    right: 34px;
+    height: 74px;
+    background: #68B51C;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.cta-btn:hover {
+    background: #5aa016;
+}
+
+.cta-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+.cta-btn span {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 26px;
+}
+
+/* =========================================
+   АДАПТИВНОСТЬ (Общий блок)
+   ========================================= */
+
+/* --- Планшеты и небольшие десктопы --- */
+@media (max-width: 1600px) {
+    /* Общие обертки */
+    .company-wrapper,
+    .saving-time-wrapper,
+    .stats-wrapper,
+    .order-wrapper {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    /* Секция "Экономим время" */
+    .time-card--small, 
+    .time-card--large {
+        width: 100%;
+    }
+
+    /* Секция "Статистика" */
+    .feature-card {
+        width: calc(50% - 9px); /* Резиновая ширина */
+        height: auto;
+        min-height: 240px;
+    }
+}
+
+/* --- Мобильные устройства --- */
+@media (max-width: 992px) {
+    /* Секция "О компании" */
+    .company-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .company-row-top,
+    .company-row-middle,
+    .history-container {
+        flex-direction: column;
+        height: auto;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .page-title,
+    .mission-text,
+    .goal-left,
+    .goal-right,
+    .history-left-col,
+    .history-right-col {
+        width: 100%;
+    }
+
+    .history-headers {
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .history-h2,
+    .history-subtitle {
+        position: static;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .history-img-box {
+        width: 100%;
+        height: 400px;
+    }
+
+    /* Секция "Экономим время" */
+    .saving-time__row {
+        flex-direction: column;
+        gap: 18px;
+    }
+    
+    .time-card {
+        height: auto;
+        min-height: 100px;
+    }
+
+    .saving-time__title {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .saving-time__subtitle,
+    .saving-time__description,
+    .time-card__text {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    /* Секция "Статистика" */
+    .features-row {
+        flex-direction: column;
+        gap: 18px;
+    }
+    
+    .feature-card {
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card {
+        height: auto;
+        padding: 24px;
+    }
+
+    /* Секция "Заказ" */
+    .cta-banner {
+        height: auto;
+        padding-bottom: 120px;
+    }
+
+    .cta-title {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-top: 40px;
+    }
+    
+    .cta-btn {
+        height: 60px;
+    }
+}

@@ -628,13 +628,14 @@ btn-all-services-mega__icon {
 }
 
 /* Поворот стрелки в основном меню */
-#services-menu-trigger.is-active .nav__arrow {
+#services-menu-trigger.is-active .nav__arrow {  
     transform: rotate(180deg);
 }
 
 #services-menu-trigger.is-active .nav__link {
     color: #68B51C;
 }
+
 
 @media (max-width: 992px) {
     
