@@ -29,12 +29,25 @@ body {
 .services-section {
     position: relative;
     width: 100%;
-    min-height: 780px; 
-    background: url('/frontend/assets/images/bg-hero.jpg') no-repeat center center;
-    background-size: cover;
-    background-color: #CECECE; /* Цвет заглушка */
+    min-height: 780px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.services-section .bg-wrapper {
+    width: 100%;
+    max-width: 1920px;   /* Ограничение */
+    height: 100%;
+    background: url('/frontend/assets/images/bg-hero.jpg') no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
 }
 
 .services-title {

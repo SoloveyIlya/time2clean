@@ -1,0 +1,382 @@
+/* Сброс и базовые настройки */
+* {
+    box-sizing: border-box; /* Гарантирует, что width включает padding и border */
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F7F7F7; 
+}
+
+/* --- Общие стили для страницы Контакты --- */
+.contacts-page {
+    background-color: #F7F7F7; 
+    padding-bottom: 0; /* Убрали лишний отступ снизу */
+}
+
+/* Обертка шириной 1584px */
+.contacts-wrapper {
+    max-width: 1584px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   БЛОК 1: Верхний заголовок
+   ========================================= */
+.contacts-intro {
+    padding: 34px 0 34px 0;
+    margin-bottom: 60px; /* Немного уменьшил отступ до 2 блока */
+}
+
+.contacts-intro .contacts-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.intro-title {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53px;
+    color: #333333;
+    margin: 0;
+}
+
+.intro-description {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #666666;
+    
+    /* ПРАВКИ: */
+    max-width: 900px; /* Ограничиваем ширину, чтобы текст был компактным блоком справа */
+    text-align: left; /* Выравниваем текст внутри блока по правому краю */
+    margin: 0;
+    margin-left: auto; /* На всякий случай толкаем весь блок вправо */
+}
+
+.intro-description a {
+    color: #68B51C;
+    text-decoration: underline;
+}
+.intro-description a:hover {
+    text-decoration: none;
+}
+
+/* =========================================
+   БЛОК 2: Форма обратной связи
+   ========================================= */
+.form-section {
+    margin-bottom: 80px;
+}
+
+.form-wrapper {
+    position: relative;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    /* УМЕНЬШИЛ: было 64px, стало 50px */
+    padding: 50px; 
+    overflow: hidden;
+}
+
+.form-bg-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 105%;
+    height: auto;
+    z-index: 1;
+}
+
+.form-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    /* УМЕНЬШИЛ: было 40px, стало 30px, чтобы блок был компактнее */
+    gap: 30px; 
+}
+
+/* Верхний ряд */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.form-header__left {
+    max-width: 483px;
+}
+.form-header__right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px;
+}
+
+.form-title {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53px;
+    color: #333333;
+    margin: 0 0 14px 0;
+}
+.form-subtitle {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+    color: #565656;
+    margin: 0;
+}
+.contact-link {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53px;
+    color: #68B51C;
+    text-decoration: none;
+}
+
+/* Форма */
+.feedback-form {
+    display: flex;
+    gap: 22px;
+    /* УМЕНЬШИЛ: было 99px и 34px, стало меньше для компактности */
+    margin-top: 40px; 
+    margin-bottom: 20px;
+}
+
+/* Общий стиль инпутов */
+.feedback-form {
+    display: flex;
+    /* Отступ между элементами */
+    gap: 20px; 
+    /* Уменьшенные отступы сверху и снизу (как вы просили ранее) */
+    margin-top: 40px; 
+    margin-bottom: 20px;
+    /* Гарантируем, что форма занимает 100% ширины родителя */
+    width: 100%; 
+}
+
+/* Общий стиль для инпутов, текстового поля и КНОПКИ сразу */
+.form-input,
+.form-submit-btn,
+.feedback-form .form-textarea {
+    /* Самое важное: flex: 1 заставляет элемент растягиваться */
+    flex: 1; 
+    /* Убираем фиксированную ширину */
+    width: auto; 
+    /* Единая высота */
+    height: 70px; 
+    box-sizing: border-box;
+}
+
+/* Стилизация внешнего вида инпутов (без размеров) */
+.form-input {
+    background: rgba(247, 247, 247, 0.8);
+    border: 2px solid #FFFFFF;
+    backdrop-filter: blur(1px);
+    border-radius: 10px;
+    padding: 0 24px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    color: #565656;
+}
+
+.form-input::placeholder { color: #999; }
+.form-input:focus { outline: 1px solid #68B51C; }
+
+/* Специфические настройки для Textarea (сообщение) */
+.feedback-form .form-textarea { 
+    width: 340px; 
+    height: 70px; /* Чтобы высота была как у соседних инпутов */
+    padding-top: 20px; /* Смещаем текст вниз, чтобы он выглядел по центру */
+    resize: none; /* Запрещаем растягивать */
+    line-height: 1.2;
+    resize: none; /* Запрещаем растягивать мышкой, чтобы не ломать верстку */
+    padding-top: 22px;
+}
+
+.form-submit-btn {
+    width: 311px;
+    height: 70px;
+    background: #68B51C;
+    border-radius: 10px;
+    border: none;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background 0.2s;
+    min-width: 150px; 
+}
+.form-submit-btn:hover { background: #5aa016; }
+
+/* Нижний ряд */
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.policy-agreement { display: flex; align-items: center; gap: 14px; }
+.policy-checkbox-hidden { display: none; }
+.policy-checkbox-label {
+    min-width: 32px; /* min-width чтобы не сжимался */
+    width: 32px; 
+    height: 32px;
+    background: #68B51C;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.policy-checkbox-label img { width: 20px; opacity: 0; transition: opacity 0.2s; }
+.policy-checkbox-hidden:checked + .policy-checkbox-label img { opacity: 1; }
+
+.policy-text {
+    font-size: 18px; 
+    color: #565656;
+    line-height: 1.2; /* Чтобы строки стояли плотнее */
+}
+.policy-text a { color: #68B51C; text-decoration: underline; }
+
+.form-socials { display: flex; gap: 12px; }
+.social-icon img { width: 44px; height: 44px; }
+
+/* =========================================
+   БЛОК 3: Адреса
+   ========================================= */
+.address-section {
+    background: #68B51C;
+    padding: 64px 0;
+    margin-bottom: 100px; 
+}
+.address-wrapper {
+    display: flex;
+    justify-content: flex-start; /* Прижимаем блоки влево, друг к другу */
+    gap: 120px; /* Фиксированное расстояние между ними */
+}
+.address-block { color: #FFFFFF; }
+.address-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 14px 0;
+}
+.address-text {
+    font-family: 'PT Sans', sans-serif; /* Добавлен шрифт */
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 400; /* ИСПРАВЛЕНО: было 410s */
+}
+
+/* =========================================
+   БЛОК 3: Карта (Новая секция)
+   ========================================= */
+
+.map-section {
+    /* Отступ снизу 120px, как в задании */
+    margin-bottom: 120px;
+    width: 100%;
+    margin-bottom: 120px; 
+}
+
+/* Используем общий контейнер contacts-wrapper, 
+   но задаем ему специфичные настройки для этого блока */
+.map-section .contacts-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* Расстояние между текстом и картой 34px */
+    gap: 34px; 
+}
+
+/* Верхняя строка с заголовком и адресом */
+.map-header {
+    display: flex;
+    justify-content: space-between; /* Текст по краям (слева и справа) */
+    align-items: center; /* Выравнивание по вертикали по центру */
+    width: 100%;
+}
+
+.map-title {
+    font-family: 'PT Sans', sans-serif; /* Для единообразия с сайтом */
+    font-weight: 700; /* Жирный (соответствует 510/Bold в дизайне) */
+    font-size: 44px;
+    line-height: 53px;
+    color: #333333;
+    margin: 0;
+    
+}
+
+.map-address-text {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #565656;
+    text-align: left; /* Выравниваем текст адреса по правому краю */
+    margin: 0;
+}
+
+/* Блок самой карты */
+.map-container {
+    width: 100%;
+    height: 461px; /* Высота из макета */
+    background: #FFFFFF; /* На случай если карта не прогрузится */
+    border-radius: 20px; /* Скругление углов */
+    overflow: hidden; /* Обрезаем содержимое по скруглению */
+    position: relative;
+    /* Тень опционально, чтобы карта не сливалась с фоном */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05); 
+}
+
+/* --- АДАПТИВНОСТЬ для карты --- */
+@media (max-width: 992px) {
+    .map-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .map-address-text {
+        text-align: left;
+    }
+    
+    .map-title {
+        font-size: 32px;
+    }
+    
+    .map-container {
+        height: 300px; /* На мобильных карту делаем пониже */
+    }
+}
+
+/* =========================================
+   АДАПТИВНОСТЬ
+   ========================================= */
+@media (max-width: 1600px) {
+    .contacts-wrapper { width: 100%; padding: 0 20px; }
+}
+@media (max-width: 992px) {
+    .contacts-intro .contacts-wrapper, .form-header, .feedback-form, .form-footer, .address-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .form-header__right, .form-socials { align-items: flex-start; }
+    
+    /* Делаем инпуты на всю ширину на планшетах/телефонах */
+    .form-input, 
+    .feedback-form .form-textarea, 
+    .form-submit-btn { 
+        width: 100% !important; 
+    }
+    
+    
+    .contact-link { font-size: 32px; }
+    .form-footer { align-items: flex-start; }
+}
