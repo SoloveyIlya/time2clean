@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Cleaning Block</title>
+    <link rel="stylesheet" href="/frontend/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="/frontend/js/index.js" defer></script>
+</head>
+<body>
+
+<section class="services-section">
+    <div class="container">
+        
+        <!-- Заголовок -->
+        <h2 class="services-title">Профессиональная уборка</h2>
+
+        <!-- Обертка слайдера (стрелки + карточки) -->
+        <div class="services-slider-wrapper">
+            
+            <!-- Левая стрелка -->
+            <button class="slider-arrow slider-arrow--prev">
+                <img src="/frontend/assets/icons/arrow-right.svg" alt="Назад"> 
+            </button>
+
+            <!-- Контейнер с карточками (Скролл) -->
+            <div class="services-track">
+                
+                <!-- Карточка 1: Стандарт -->
+                <article class="service-card">
+                    <div class="service-card__top-group">
+                        <div class="service-card__header">
+                            <div class="service-icon-box service-icon-box--green">
+                                <img src="/frontend/assets/icons/card-icons/check-white.svg" alt="">
+                            </div>
+                            <h3 class="service-title">Стандарт</h3>
+                            <!-- Стрелка позиционируется абсолютно -->
+                            <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                        </div>
+                        
+                        <div class="service-card__tags">
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                <span>1 клинер</span>
+                            </div>
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/clock.svg" alt="">
+                                <span>2 часа</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card__footer">
+                        <div class="service-price">от 4 500 ₽</div>
+                        <a href="#" class="service-order-btn">Заказать</a>
+                    </div>
+                </article>
+
+                <!-- Карточка 2: Премиум -->
+                <article class="service-card">
+                    <div class="service-card__top-group">
+                        <div class="service-card__header">
+                            <div class="service-icon-box service-icon-box--green">
+                                <img src="/frontend/assets/icons/card-icons/diamond-white.svg" alt="">
+                            </div>
+                            <h3 class="service-title">Премиум</h3>
+                            <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                        </div>
+                        
+                        <div class="service-card__tags">
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                <span>1-3 клинер</span>
+                            </div>
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/clock.svg" alt="">
+                                <span>2-4 часа</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card__footer">
+                        <div class="service-price">от 8 000 ₽</div>
+                        <a href="#" class="service-order-btn">Заказать</a>
+                    </div>
+                </article>
+
+                <!-- Карточка 3: После ремонта -->
+                <article class="service-card">
+                    <div class="service-card__top-group">
+                        <div class="service-card__header">
+                            <div class="service-icon-box service-icon-box--green">
+                                <img src="/frontend/assets/icons/card-icons/hard-hat-white.svg" alt="">
+                            </div>
+                            <h3 class="service-title">После ремонта</h3>
+                            <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                        </div>
+                        
+                        <div class="service-card__tags">
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                <span>1 клинер</span>
+                            </div>
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/clock.svg" alt="">
+                                <span>2 часа</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card__footer">
+                        <div class="service-price">от 3 500 ₽</div>
+                        <a href="#" class="service-order-btn">Заказать</a>
+                    </div>
+                </article>
+
+                <!-- Карточка 4: Коттедж -->
+                <article class="service-card">
+                    <div class="service-card__top-group">
+                        <div class="service-card__header">
+                            <div class="service-icon-box service-icon-box--green">
+                                <img src="/frontend/assets/icons/card-icons/home-white.svg" alt="">
+                            </div>
+                            <h3 class="service-title">Коттедж</h3>
+                            <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                        </div>
+                        
+                        <div class="service-card__tags">
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                <span>1 клинер</span>
+                            </div>
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/clock.svg" alt="">
+                                <span>2 часа</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card__footer">
+                        <div class="service-price">от 11 500 ₽</div>
+                        <a href="#" class="service-order-btn">Заказать</a>
+                    </div>
+                </article>
+
+                <!-- Карточка 5: Окна -->
+                <article class="service-card">
+                    <div class="service-card__top-group">
+                        <div class="service-card__header">
+                            <div class="service-icon-box service-icon-box--light">
+                                <img src="/frontend/assets/icons/card-icons/window-green.svg" alt="">
+                            </div>
+                            <h3 class="service-title">Окна</h3>
+                            <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                        </div>
+                        
+                        <div class="service-card__tags">
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                <span>1 клинер</span>
+                            </div>
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/clock.svg" alt="">
+                                <span>2-5 часа</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card__footer">
+                        <div class="service-price">от 3 000 ₽</div>
+                        <a href="#" class="service-order-btn">Заказать</a>
+                    </div>
+                </article>
+
+                <!-- Карточка 6: Химчистка -->
+                <article class="service-card">
+                    <div class="service-card__top-group">
+                        <div class="service-card__header">
+                            <div class="service-icon-box service-icon-box--light">
+                                <img src="/frontend/assets/icons/card-icons/armchair-green.svg" alt="">
+                            </div>
+                            <h3 class="service-title">Химчистка</h3>
+                            <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                        </div>
+                        
+                        <div class="service-card__tags">
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                <span>1 клинер</span>
+                            </div>
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/clock.svg" alt="">
+                                <span>2 часа</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card__footer">
+                        <div class="service-price">от 4 300 ₽</div>
+                        <a href="#" class="service-order-btn">Заказать</a>
+                    </div>
+                </article>
+
+                <!-- Карточка 7: Другое -->
+                <article class="service-card">
+                    <div class="service-card__top-group">
+                        <div class="service-card__header">
+                            <div class="service-icon-box service-icon-box--light">
+                                <img src="/frontend/assets/icons/card-icons/armchair-green.svg" alt="">
+                            </div>
+                            <h3 class="service-title">Офис</h3>
+                            <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                        </div>
+                        <div class="service-card__tags">
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                <span>2 клинер</span>
+                            </div>
+                            <div class="tag">
+                                <img src="/frontend/assets/icons/clock.svg" alt="">
+                                <span>2-5 часа</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card__footer">
+                        <div class="service-price">от 3 000 ₽</div>
+                        <a href="#" class="service-order-btn">Заказать</a>
+                    </div>
+                </article>
+
+            </div> <!-- конец services-track -->
+
+            <!-- Правая стрелка -->
+            <button class="slider-arrow slider-arrow--next">
+                <img src="/frontend/assets/icons/arrow-right.svg" alt="Вперед">
+            </button>
+        </div>
+
+        <!-- Кнопка Все услуги -->
+        <div class="services-action">
+            <a href="#" class="btn-all-services">Все услуги</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Секция Telegram -->
+<section class="telegram-section">
+    <div class="container">
+        <div class="telegram-inner">
+            
+            <!-- Левая часть: Иконка и текст -->
+            <div class="telegram-left">
+                <div class="telegram-icon-circle">
+                    <!-- Иконка телеграма (белая) -->
+                    <img src="/frontend/assets/icons/telegram-white-icon.svg" alt="Telegram">
+                </div>
+                <p class="telegram-text">Подписывайтесь на наш Telegram-канал</p>
+            </div>
+
+            <!-- Правая часть: Ссылка "Подписаться" -->
+            <a href="#" class="telegram-link">
+                <span>Подписаться</span>
+                <!-- Синяя стрелочка -->
+                <img src="/frontend/assets/icons/arrow-blue-right.svg" alt="">
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- Секция: Описание и Преимущества -->
+<section class="advantages-section">
+    <div class="container">
+        
+        <!-- Блок с кратким описанием (6 строк) -->
+        <div class="product-description">
+            <p>
+                Краткое описание продукта 6 строк минимум. Краткое описание продукта 6 строк минимум. Краткое описание продукта 6 строк минимум. Краткое описание продукта 6 строк минимум. Краткое описание продукта 6 строк минимум. Краткое описание продукта 6 строк минимум. Краткое описание продукта 6 строк минимум.Краткое описание продукта 6 строк минимум. Краткое описание продукта 6 строк минимум. Краткое описание продукта 6 строк минимум. Краткое описание продукта 6 строк минимум.
+            </p>
+        </div>
+
+        <!-- Основной блок преимуществ -->
+        <div class="advantages-wrapper">
+            
+            <!-- Заголовок и подзаголовки -->
+            <div class="advantages-header">
+                <h2 class="advantages-title">Преимущества</h2>
+                
+                <div class="advantages-subtitle-group">
+                    <p class="subtitle-text">
+                        Работаем с <span class="highlight-green">2018</span> года и заслужили доверие клиентов, для которых качество и надёжность стоят на первом месте.
+                    </p>
+                    <p class="subtitle-text text-right">
+                        Каждая уборка — это внимание к деталям, <span class="highlight-green">аккуратность</span> и <span class="highlight-green">конфиденциальность</span>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Сетка карточек (4 шт) -->
+            <div class="advantages-grid">
+                
+                <!-- Карточка 1: Строгий отбор -->
+                <div class="advantage-card">
+                    <div class="advantage-card__header">
+                        <div class="advantage-icon-box">
+                            <img src="/frontend/assets/icons/check-white.svg" alt="">
+                        </div>
+                        <h3 class="advantage-card__title">Строгий отбор</h3>
+                    </div>
+                    <p class="advantage-card__text">
+                        Все клинеры проходят тестирование и профессиональный инструктаж
+                    </p>
+                </div>
+
+                <!-- Карточка 2: Гарантия качества -->
+                <div class="advantage-card">
+                    <div class="advantage-card__header">
+                        <div class="advantage-icon-box">
+                            <img src="/frontend/assets/icons/shield-white.svg" alt="">
+                        </div>
+                        <h3 class="advantage-card__title">Гарантия качества</h3>
+                    </div>
+                    <p class="advantage-card__text">
+                        Клинер исправит недочёты, если вам не понравится результат
+                    </p>
+                </div>
+
+                <!-- Карточка 3: Свежие наборы -->
+                <div class="advantage-card">
+                    <div class="advantage-card__header">
+                        <div class="advantage-icon-box">
+                            <img src="/frontend/assets/icons/broom-white.svg" alt="">
+                        </div>
+                        <h3 class="advantage-card__title">Свежие наборы</h3>
+                    </div>
+                    <p class="advantage-card__text">
+                        Новые наборы инвентаря для каждого дома
+                    </p>
+                </div>
+
+                <!-- Карточка 4: Скидки -->
+                <div class="advantage-card">
+                    <div class="advantage-card__header">
+                        <div class="advantage-icon-box">
+                            <img src="/frontend/assets/icons/handshake-white.svg" alt="">
+                        </div>
+                        <h3 class="advantage-card__title">Скидки</h3>
+                    </div>
+                    <p class="advantage-card__text">
+                        Для постоянных клиентов уборки дешевле
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Нижний информационный блок (Лицензия) -->
+            <div class="license-block">
+                <p class="license-text">
+                    Все наши клинеры проходят обучение у компании <span class="highlight-green">GRASS</span> ведущий бренд бытовой химии на которой мы работаем. А так же в собственном образовательном центре. Лицензия <span class="highlight-green">№ Л035–01255–50/01012181</span> от 29.12.2023 г. Выданная Министерством образования Московской области. Потому что качественная уборка начинается с квалифицированного специалиста.
+                </p>
+                <a href="#" class="btn-more">Подробнее о нас</a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- Секция: Сравнение типов уборок -->
+<section class="comparison-section">
+    <div class="container">
+        
+        <!-- Заголовок и описание -->
+        <div class="comparison-header">
+            <h2 class="comparison-title">Сравнение типов уборок</h2>
+            <p class="comparison-desc">
+                <a href="#">Мытье окон</a> — отдельная услуга, которую можно добавить к любому виду уборки. Стоимость может корректироваться при сильных загрязнениях.
+            </p>
+        </div>
+
+        <!-- Таблица сравнения (Grid) -->
+        <div class="comparison-grid">
+            
+            <!-- Ряд 1: Заголовки колонок (Карточки) -->
+            
+            <!-- Ячейка 1: "Параметры" (Текст) -->
+            <div class="cmp-header-label">Параметры</div>
+
+            <!-- Ячейка 2: Карточка "Поддерживающая" -->
+            <div class="cmp-card">
+                <div class="cmp-card__icon">
+                    <img src="/frontend/assets/icons/building-white.svg" alt="">
+                </div>
+                <h3 class="cmp-card__title">Поддерживающая</h3>
+            </div>
+
+            <!-- Ячейка 3: Карточка "Генеральная" -->
+            <div class="cmp-card">
+                <div class="cmp-card__icon">
+                    <img src="/frontend/assets/icons/building-white.svg" alt="">
+                </div>
+                <h3 class="cmp-card__title">Генеральная</h3>
+            </div>
+
+            <!-- Ячейка 4: Карточка "После ремонта" -->
+            <div class="cmp-card">
+                <div class="cmp-card__icon">
+                    <img src="/frontend/assets/icons/building-white.svg" alt="">
+                </div>
+                <h3 class="cmp-card__title">После ремонта</h3>
+            </div>
+
+            <!-- Разделитель (отступ 86px реализуется через margin у карточек или grid-gap, здесь сделаем через класс ряда) -->
+
+            <!-- Ряд 2: Влажная уборка полов -->
+            <div class="cmp-row-label">Влажная уборка полов</div>
+            
+            <div class="cmp-row-value">
+                <span class="check-text">✔</span>
+                <div class="info-badge" title="Подробнее">!</div>
+            </div>
+            
+            <div class="cmp-row-value">
+                <span class="check-text">✔</span>
+                <div class="info-badge" title="Подробнее">!</div>
+            </div>
+            
+            <div class="cmp-row-value">
+                <span class="check-text">✔</span>
+                <div class="info-badge" title="Подробнее">!</div>
+            </div>
+
+            <!-- Ряд 3: Уборка кухни -->
+            <div class="cmp-row-label">Уборка кухни</div>
+            
+            <div class="cmp-row-value">
+                <span class="text-value text-gray">Базовая</span>
+                <div class="info-badge">!</div>
+            </div>
+            
+            <div class="cmp-row-value">
+                <span class="text-value">Глубокая</span>
+                <div class="info-badge">!</div>
+            </div>
+            
+            <div class="cmp-row-value">
+                <span class="text-value">Глубокая</span>
+                <div class="info-badge">!</div>
+            </div>
+
+            <!-- Ряд 4: Санузел -->
+            <div class="cmp-row-label">Санузел</div>
+            
+            <div class="cmp-row-value">
+                <span class="text-value text-gray">Базовая</span>
+                <div class="info-badge">!</div>
+            </div>
+            
+            <div class="cmp-row-value">
+                <span class="text-value">Глубокая</span>
+                <div class="info-badge">!</div>
+            </div>
+            
+            <div class="cmp-row-value">
+                <span class="text-value">Глубокая</span>
+                <div class="info-badge">!</div>
+            </div>
+
+            <!-- Ряд 5: Труднодоступные места -->
+            <div class="cmp-row-label">Труднодоступные места</div>
+            
+            <div class="cmp-row-value">
+                <span class="text-value text-gray">—</span>
+                <div class="info-badge">!</div>
+            </div>
+            
+            <div class="cmp-row-value">
+                <span class="check-text">✔</span>
+                <div class="info-badge">!</div>
+            </div>
+            
+            <div class="cmp-row-value">
+                <span class="check-text">✔</span>
+                <div class="info-badge">!</div>
+            </div>
+
+        </div> <!-- Конец Grid -->
+
+        <!-- Кнопка развернуть -->
+        <div class="comparison-action">
+            <button class="btn-expand">Развернуть все</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- Секция: О нас / Гарантии -->
+<section class="about-section">
+    <div class="container">
+        
+        <!-- Заголовок и подзаголовок -->
+        <div class="about-header">
+            <h2 class="about-title">
+                Профессиональный клининг<br>с гарантией качества и безопасности
+            </h2>
+            <p class="about-subtitle">
+                Освободите своё время для важного.<br>А заботу о чистоте доверьте Time2Clean.
+            </p>
+        </div>
+
+        <!-- Контент: Карточки + Картинка -->
+        <div class="about-content">
+            
+            <!-- Ряд карточек -->
+            <div class="about-cards-grid">
+                
+                <!-- Карточка 1 -->
+                <div class="about-card">
+                    <div class="about-card__top">
+                        <div class="about-icon-box">
+                            <!-- Иконка: Свежие наборы -->
+                            <img src="/frontend/assets/icons/broom-white.svg" alt="">
+                        </div>
+                        <h3 class="about-card__title">Свежие наборы<br>для каждой уборки</h3>
+                    </div>
+                    <p class="about-card__text">
+                        Для каждого дома мы используем новые тряпки и мопы. Никакого повторного использования и переноса загрязнений между объектами.
+                    </p>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="about-card">
+                    <div class="about-card__top">
+                        <div class="about-icon-box">
+                            <!-- Иконка: Эко химия -->
+                            <img src="/frontend/assets/icons/shield-white.svg" alt="">
+                        </div>
+                        <h3 class="about-card__title">Безопасная<br>ЭКО-химия</h3>
+                    </div>
+                    <p class="about-card__text">
+                        Мы используем проверенные гипоаллергенные средства. Они безопасны для детей, аллергиков и домашних животных и не имеют резких запахов.
+                    </p>
+                </div>
+
+                <!-- Карточка 3 (Активная/Зеленая по умолчанию) -->
+                <div class="about-card">
+                    <div class="about-card__top">
+                        <div class="about-icon-box">
+                            <!-- Иконка: Проверенные клинеры -->
+                            <img src="/frontend/assets/icons/handshake-white.svg" alt="">
+                        </div>
+                        <h3 class="about-card__title">Проверенные<br>клинеры</h3>
+                    </div>
+                    <p class="about-card__text">
+                        Все сотрудники проходят обучение и работают по стандартам компании. Мы аккуратно относимся к вашему дому и личному пространству.
+                    </p>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="about-card">
+                    <div class="about-card__top">
+                        <div class="about-icon-box">
+                            <!-- Иконка: Все привозим -->
+                            <img src="/frontend/assets/icons/box-white.svg" alt="">
+                        </div>
+                        <h3 class="about-card__title">Всё привозим<br>с собой</h3>
+                    </div>
+                    <p class="about-card__text">
+                        Техника, средства и инвентарь — полностью на нас. Можно не быть дома и вернуться уже в чистое пространство.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Большая картинка внизу -->
+            <div class="about-image-wrapper">
+                <img src="/frontend/assets/images/about-clean-supplies.jpg" alt="Профессиональный инвентарь">
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Секция 1: Дополнительные услуги -->
+<section class="additional-services-section">
+    <div class="container">
+        
+        <!-- Заголовок -->
+        <h2 class="additional-title">Дополнительные услуги</h2>
+
+        <!-- Сетка карточек -->
+        <div class="additional-grid">
+            
+            <!-- Ряд 1 (4 карточки) -->
+            <div class="add-row add-row--4">
+                <div class="add-card">
+                    <h3 class="add-card__title">Доставить ключи</h3>
+                    <p class="add-card__text">Если у вас нет возможности быть дома, мы заберём и доставим ключи.</p>
+                </div>
+                <div class="add-card">
+                    <h3 class="add-card__title">Химчистка мебели</h3>
+                    <p class="add-card__text">Очистим вашу мягкую и кожаную мебель, бережно выведем сложные пятна.</p>
+                </div>
+                <div class="add-card">
+                    <h3 class="add-card__title">Погладить белье</h3>
+                    <p class="add-card__text">Постельное белье, гладкое, как озеро в безветренную погоду.</p>
+                </div>
+                <div class="add-card">
+                    <h3 class="add-card__title">Помыть духовку</h3>
+                    <p class="add-card__text">Пригорело к противню?<br>А мы помоем и отчистим.</p>
+                </div>
+            </div>
+
+            <!-- Ряд 2 (3 карточки) -->
+            <div class="add-row add-row--3">
+                <div class="add-card">
+                    <h3 class="add-card__title">Убрать в кухонном шкафу</h3>
+                    <p class="add-card__text">Просыпалось, просрочилось и запылилось? Сделаем красиво и свежо.</p>
+                </div>
+                <div class="add-card">
+                    <h3 class="add-card__title">Прибрать в холодильнике</h3>
+                    <p class="add-card__text">Продукты испортились,<br>и пахнет странно?<br>Мы найдём источник.</p>
+                </div>
+                <div class="add-card">
+                    <h3 class="add-card__title">Помыть окна и лоджи</h3>
+                    <p class="add-card__text">Мир в окне станет ярче,<br>не будет следов от птичек<br>и дождя на стекле.</p>
+                </div>
+            </div>
+
+            <!-- Ряд 3 (2 карточки) -->
+            <div class="add-row add-row--2">
+                <div class="add-card">
+                    <h3 class="add-card__title">Сделать уборку детской комнаты</h3>
+                    <p class="add-card__text">Уберем детскую комнату вашего ребенка безопасными для него средствами, а так же обработаем его любимые игрушки паром.</p>
+                </div>
+                <div class="add-card">
+                    <h3 class="add-card__title">Привезем наше оборудование</h3>
+                    <p class="add-card__text">Привезём всё необходимое оборудование с собой,<br>если у вас его не окажется.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Секция 2: Заказать уборку (CTA) -->
+<section class="order-section">
+    <div class="container">
+        
+        <!-- CTA Баннер -->
+        <div class="cta-banner">
+            <img src="/frontend/assets/images/cta-bg-lemons.jpg" class="cta-bg-image" alt="">
+            
+            <h2 class="cta-title">Заказать уборку<br>удобно в любое время</h2>
+            
+            <a href="#" class="cta-btn">
+                <img src="/frontend/assets/icons/broom-white.svg" alt="">
+                <span>Оформить заказ</span>
+            </a>
+        </div>
+        <div class="section-widget">
+            <img src="/frontend/assets/images/jivo-widget.jpg" alt="Напишите нам">
+        </div>
+    </div>
+</section> 
+
+</body>
+</html>

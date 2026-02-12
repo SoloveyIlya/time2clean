@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time2Clean Header</title>
+    <link rel="stylesheet" href="/frontend/css/header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="/frontend/js/header.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+    <!-- Верхняя черная полоса -->
+    <div class="header__top-bar">
+        <div class="header__top-content">
+            <span class="header__top-text">На сайте доступна оплата сервисом</span>
+            <img src="/frontend/assets/icons/podeli.svg" alt="Подели" class="header__top-icon">
+        </div>
+    </div>
+
+    <!-- Основная часть хедера -->
+    <div class="header__main">
+        <div class="container">
+            <div class="header__row">
+                
+                <!-- Логотип -->
+                <div class="header__logo-block">
+                    <a href="/" class="header__logo-link">
+                        <img src="/frontend/assets/icons/logo.svg" alt="Time2Clean" class="header__logo-img">
+                    </a>
+                </div>
+
+                <!-- Десктопная Навигация -->
+                <nav class="header__nav desktop-only">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#" class="nav__link">Главная</a></li>
+                        
+                        <!-- Дропдаун 1 -->
+                        <li class="nav__item nav__item--has-dropdown">
+                            <a href="#" class="nav__link">
+                                О компании
+                                <img src="/frontend/assets/icons/arrow-down.svg" alt="" class="nav__arrow">
+                            </a>
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__dropdown-link">История</a>
+                                <a href="#" class="nav__dropdown-link">Команда</a>
+                            </div>
+                        </li>
+
+                        <!-- ЗАМЕНИТЬ СУЩЕСТВУЮЩИЙ ПУНКТ "УСЛУГИ" НА ЭТОТ -->
+
+                        <!-- Дропдаун Услуги (с Мега-меню) -->
+                        <li class="nav__item nav__item--has-dropdown" id="services-menu-trigger">
+                            <a href="#" class="nav__link">
+                                <img src="/frontend/assets/icons/services-active-icon.svg" class="nav__link-icon" alt="">
+                                <span class="nav__link-text">Услуги</span>
+                                <!-- Иконка стрелки, которая будет меняться -->
+                                <img src="/frontend/assets/icons/arrow-down.svg" alt="" class="nav__arrow">
+                            </a>
+                            
+                            <!-- === НАЧАЛО МЕГА-МЕНЮ === -->
+                            <div class="header-mega-menu" id="services-mega-menu">
+                                <div class="container">
+                                    
+                                    <!-- Шапка мега-меню -->
+                                    <div class="mega-menu__header">
+                                        <h2 class="mega-menu__title">Услуги Time2Clean</h2>
+                                        <a href="#" class="btn-all-services-mega">
+                                            <img src="/frontend/assets/icons/all-services-grid.svg" class="btn-mega-icon" alt="">
+                                            Все услуги
+                                        </a>
+                                    </div>
+
+                                    <!-- Сетка с карточками услуг -->
+                                    <div class="mega-menu__grid">
+                                        <!-- Карточки услуг (адаптированный код) -->
+                                        <!-- Карточка 1: Стандарт -->
+                                        <article class="service-card">
+                                            <div class="service-card__top-group">
+                                                <div class="service-card__header">
+                                                    <div class="service-icon-box service-icon-box--green">
+                                                        <img src="/frontend/assets/icons/card-icons/check-white.svg" alt="">
+                                                    </div>
+                                                    <h3 class="service-title">Стандарт</h3>
+                                                    <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                                                </div>
+                                                <div class="service-card__tags">
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                                        <span>1 клинер</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/clock.svg" alt="">
+                                                        <span>2 часа</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="service-card__footer">
+                                                <div class="service-price">от 4 500 ₽</div>
+                                                <a href="#" class="service-order-btn">Заказать</a>
+                                            </div>
+                                        </article>
+
+                                        <!-- Карточка 2: Премиум -->
+                                        <article class="service-card">
+                                            <div class="service-card__top-group">
+                                                <div class="service-card__header">
+                                                    <div class="service-icon-box service-icon-box--green">
+                                                        <img src="/frontend/assets/icons/card-icons/diamond-white.svg" alt="">
+                                                    </div>
+                                                    <h3 class="service-title">Премиум</h3>
+                                                    <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                                                </div>
+                                                <div class="service-card__tags">
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                                        <span>1-3 клинер</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/clock.svg" alt="">
+                                                        <span>2-4 часа</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="service-card__footer">
+                                                <div class="service-price">от 8 000 ₽</div>
+                                                <a href="#" class="service-order-btn">Заказать</a>
+                                            </div>
+                                        </article>
+
+                                        <!-- Карточка 3: После ремонта -->
+                                        <article class="service-card">
+                                            <div class="service-card__top-group">
+                                                <div class="service-card__header">
+                                                    <div class="service-icon-box service-icon-box--green">
+                                                        <img src="/frontend/assets/icons/card-icons/hard-hat-white.svg" alt="">
+                                                    </div>
+                                                    <h3 class="service-title">После ремонта</h3>
+                                                    <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                                                </div>
+                                                <div class="service-card__tags">
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                                        <span>1 клинер</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/clock.svg" alt="">
+                                                        <span>2 часа</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="service-card__footer">
+                                                <div class="service-price">от 3 500 ₽</div>
+                                                <a href="#" class="service-order-btn">Заказать</a>
+                                            </div>
+                                        </article>
+
+                                        <!-- Карточка 4: Коттедж -->
+                                        <article class="service-card">
+                                            <div class="service-card__top-group">
+                                                <div class="service-card__header">
+                                                    <div class="service-icon-box service-icon-box--green">
+                                                        <img src="/frontend/assets/icons/card-icons/home-white.svg" alt="">
+                                                    </div>
+                                                    <h3 class="service-title">Коттедж</h3>
+                                                    <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                                                </div>
+                                                <div class="service-card__tags">
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                                        <span>1 клинер</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/clock.svg" alt="">
+                                                        <span>2 часа</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="service-card__footer">
+                                                <div class="service-price">от 11 500 ₽</div>
+                                                <a href="#" class="service-order-btn">Заказать</a>
+                                            </div>
+                                        </article>
+
+                                        <!-- Карточка 5: Окна -->
+                                        <article class="service-card">
+                                            <div class="service-card__top-group">
+                                                <div class="service-card__header">
+                                                    <div class="service-icon-box service-icon-box--light">
+                                                        <img src="/frontend/assets/icons/card-icons/window-green.svg" alt="">
+                                                    </div>
+                                                    <h3 class="service-title">Окна</h3>
+                                                    <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                                                </div>
+                                                <div class="service-card__tags">
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                                        <span>2 клинер</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/clock.svg" alt="">
+                                                        <span>2-5 часа</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="service-card__footer">
+                                                <div class="service-price">от 3 000 ₽</div>
+                                                <a href="#" class="service-order-btn">Заказать</a>
+                                            </div>
+                                        </article>
+
+                                        <!-- Карточка 6: Химчистка -->
+                                        <article class="service-card">
+                                            <div class="service-card__top-group">
+                                                <div class="service-card__header">
+                                                    <div class="service-icon-box service-icon-box--light">
+                                                        <img src="/frontend/assets/icons/card-icons/armchair-green.svg" alt="">
+                                                    </div>
+                                                    <h3 class="service-title">Химчистка</h3>
+                                                    <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                                                </div>
+                                                <div class="service-card__tags">
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                                        <span>1 клинер</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/clock.svg" alt="">
+                                                        <span>2 часа</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="service-card__footer">
+                                                <div class="service-price">от 4 300 ₽</div>
+                                                <a href="#" class="service-order-btn">Заказать</a>
+                                            </div>
+                                        </article>
+
+                                        <!-- Карточка 7: Офис -->
+                                        <article class="service-card">
+                                            <div class="service-card__top-group">
+                                                <div class="service-card__header">
+                                                    <div class="service-icon-box service-icon-box--light">
+                                                        <img src="/frontend/assets/icons/card-icons/armchair-green.svg" alt="">
+                                                    </div>
+                                                    <h3 class="service-title">Офис</h3>
+                                                    <img src="/frontend/assets/icons/arrow-right.svg" class="service-arrow-icon" alt="">
+                                                </div>
+                                                <div class="service-card__tags">
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                                        <span>2 клинер</span>
+                                                    </div>
+                                                    <div class="tag">
+                                                        <img src="/frontend/assets/icons/clock.svg" alt="">
+                                                        <span>2-5 часа</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="service-card__footer">
+                                                <div class="service-price">от 3 000 ₽</div>
+                                                <a href="#" class="service-order-btn">Заказать</a>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- === КОНЕЦ МЕГА-МЕНЮ === -->
+                        </li>
+
+                        <!-- КОНЕЦ ЗАМЕНЫ -->
+
+                        <li class="nav__item"><a href="#" class="nav__link">Блог</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Отзывы</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Обучение ДПО</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Правая часть -->
+                <div class="header__actions">
+                    
+                    <!-- Контакты и Соцсети (скрыты на мобильном) -->
+                    <div class="header__info-group desktop-only">
+                        <div class="header__contacts">
+                            <a href="tel:+79777170070" class="header__phone">+7 977 717 00 70</a>
+                            <a href="#" class="header__callback">Обратная связь</a>
+                        </div>
+                        <div class="header__socials">
+                            <a href="#" class="social__link"><img src="/frontend/assets/icons/telegram.svg" alt="Telegram" class="social__icon"></a>
+                            <a href="#" class="social__link"><img src="/frontend/assets/icons/max.svg" alt="Max" class="social__icon"></a>
+                        </div>
+                    </div>
+
+                    <!-- Мобильные элементы: Корзина + Бургер -->
+                    <!-- Мобильные элементы: Корзина + Бургер -->
+                    <div class="header__mobile-controls">
+                        <!-- Корзина с цифрой -->
+                        <div class="header__cart">
+                            <a href="#" class="cart__link">
+                                <div class="cart__icon-wrapper">
+                                    <img src="/frontend/assets/icons/cart.svg" alt="Корзина" class="cart__icon">
+                                    <!-- Вернули цифру -->
+                                    <span class="cart__count">0</span>
+                                </div>
+                                <span class="cart__text desktop-only">Корзина</span>
+                            </a>
+                        </div>
+
+                        <!-- Кнопка Бургер -->
+                        <button class="header__burger" id="burgerBtn">
+                            <!-- Файл называется burger.svg -->
+                            <img src="/frontend/assets/icons/burger.svg" alt="Menu">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Мобильное выпадающее меню -->
+    <div class="header__mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav__list">
+            <li><a href="#" class="mobile-nav__link">Главная</a></li>
+            
+            <!-- Раскрывающаяся группа 1 -->
+            <li class="mobile-nav__group">
+                <div class="mobile-nav__header">
+                    <span class="mobile-nav__title">О компании</span>
+                    <img src="/frontend/assets/icons/arrow-down.svg" class="mobile-arrow">
+                </div>
+                <div class="mobile-nav__content">
+                    <a href="#" class="mobile-nav__sublink">История</a>
+                    <a href="#" class="mobile-nav__sublink">Команда</a>
+                </div>
+            </li>
+
+            <!-- Раскрывающаяся группа 2 -->
+            <!-- Найти в мобильном меню группу Услуги и заменить содержимое -->
+            <li class="mobile-nav__group">
+                <div class="mobile-nav__header">
+                    <span class="mobile-nav__title">Услуги</span>
+                    <img src="/frontend/assets/icons/arrow-down.svg" class="mobile-arrow">
+                </div>
+                <div class="mobile-nav__content">
+                    <!-- Обертка для горизонтального скролла -->
+                    <div class="mobile-services-container">
+                        <div class="mobile-services-scroll">
+                            
+                            <!-- Карточка 1 -->
+                            <article class="service-card-mobile">
+                                <div class="card-mobile__header">
+                                    <div class="service-icon-box icon-box--small service-icon-box--green">
+                                        <img src="/frontend/assets/icons/card-icons/check-white.svg" alt="">
+                                    </div>
+                                    <h4 class="card-mobile__title">Стандарт</h4>
+                                    <img src="/frontend/assets/icons/arrow-right.svg" class="card-mobile__arrow" alt="">
+                                </div>
+                                
+                                <div class="card-mobile__tags">
+                                    <div class="tag-mobile">
+                                        <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                        <span>1 клинер</span>
+                                    </div>
+                                    <div class="tag-mobile">
+                                        <img src="/frontend/assets/icons/clock.svg" alt="">
+                                        <span>2 часа</span>
+                                    </div>
+                                </div>
+
+                                <div class="card-mobile__footer">
+                                    <div class="price-mobile">от 4 500 ₽</div>
+                                    <a href="#" class="order-mobile">Заказать</a>
+                                </div>
+                            </article>
+
+                            <!-- Повторить карточки (Премиум, Ремонт и т.д.) -->
+                            <article class="service-card-mobile">
+                                <div class="card-mobile__header">
+                                    <div class="service-icon-box icon-box--small service-icon-box--green">
+                                        <img src="/frontend/assets/icons/card-icons/diamond-white.svg" alt="">
+                                    </div>
+                                    <h4 class="card-mobile__title">Премиум</h4>
+                                    <img src="/frontend/assets/icons/arrow-right.svg" class="card-mobile__arrow" alt="">
+                                </div>
+                                <div class="card-mobile__tags">
+                                    <div class="tag-mobile"><span>1-3 клинер</span></div>
+                                    <div class="tag-mobile"><span>2-4 часа</span></div>
+                                </div>
+                                <div class="card-mobile__footer">
+                                    <div class="price-mobile">от 8 000 ₽</div>
+                                    <a href="#" class="order-mobile">Заказать</a>
+                                </div>
+                            </article>
+
+                            <!-- Карточка 1 -->
+                            <article class="service-card-mobile">
+                                <div class="card-mobile__header">
+                                    <div class="service-icon-box icon-box--small service-icon-box--green">
+                                        <img src="/frontend/assets/icons/card-icons/check-white.svg" alt="">
+                                    </div>
+                                    <h4 class="card-mobile__title">После ремонта</h4>
+                                    <img src="/frontend/assets/icons/arrow-right.svg" class="card-mobile__arrow" alt="">
+                                </div>
+                                
+                                <div class="card-mobile__tags">
+                                    <div class="tag-mobile">
+                                        <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                        <span>1 клинер</span>
+                                    </div>
+                                    <div class="tag-mobile">
+                                        <img src="/frontend/assets/icons/clock.svg" alt="">
+                                        <span>2 часа</span>
+                                    </div>
+                                </div>
+
+                                <div class="card-mobile__footer">
+                                    <div class="price-mobile">от 3 500 ₽</div>
+                                    <a href="#" class="order-mobile">Заказать</a>
+                                </div>
+                            </article>
+
+                            <!-- Повторить карточки (Премиум, Ремонт и т.д.) -->
+                            <article class="service-card-mobile">
+                                <div class="card-mobile__header">
+                                    <div class="service-icon-box icon-box--small service-icon-box--green">
+                                        <img src="/frontend/assets/icons/card-icons/home-white.svg" alt="">
+                                    </div>
+                                    <h4 class="card-mobile__title">Коттедж</h4>
+                                    <img src="/frontend/assets/icons/arrow-right.svg" class="card-mobile__arrow" alt="">
+                                </div>
+                                <div class="card-mobile__tags">
+                                    <div class="tag-mobile"><span>1 клинер</span></div>
+                                    <div class="tag-mobile"><span>2 часа</span></div>
+                                </div>
+                                <div class="card-mobile__footer">
+                                    <div class="price-mobile">от 11 500 ₽</div>
+                                    <a href="#" class="order-mobile">Заказать</a>
+                                </div>
+                            </article>
+
+                            <!-- Карточка 1 -->
+                            <article class="service-card-mobile">
+                                <div class="card-mobile__header">
+                                    <div class="service-icon-box icon-box--small service-icon-box--light">
+                                        <img src="/frontend/assets/icons/card-icons/window-green.svg" alt="">
+                                    </div>
+                                    <h4 class="card-mobile__title">Окна</h4>
+                                    <img src="/frontend/assets/icons/arrow-right.svg" class="card-mobile__arrow" alt="">
+                                </div>
+                                
+                                <div class="card-mobile__tags">
+                                    <div class="tag-mobile">
+                                        <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                        <span>2 клинер</span>
+                                    </div>
+                                    <div class="tag-mobile">
+                                        <img src="/frontend/assets/icons/clock.svg" alt="">
+                                        <span>2-5 часа</span>
+                                    </div>
+                                </div>
+
+                                <div class="card-mobile__footer">
+                                    <div class="price-mobile">от 3 000 ₽</div>
+                                    <a href="#" class="order-mobile">Заказать</a>
+                                </div>
+                            </article>
+
+                            <!-- Повторить карточки (Премиум, Ремонт и т.д.) -->
+                            <article class="service-card-mobile">
+                                <div class="card-mobile__header">
+                                    <div class="service-icon-box icon-box--small service-icon-box--light">
+                                        <img src="/frontend/assets/icons/card-icons/armchair-green.svg" alt="">
+                                    </div>
+                                    <h4 class="card-mobile__title">Химчистка</h4>
+                                    <img src="/frontend/assets/icons/arrow-right.svg" class="card-mobile__arrow" alt="">
+                                </div>
+                                <div class="card-mobile__tags">
+                                    <div class="tag-mobile"><span>1 клинер</span></div>
+                                    <div class="tag-mobile"><span>2 часа</span></div>
+                                </div>
+                                <div class="card-mobile__footer">
+                                    <div class="price-mobile">от 4 300 ₽</div>
+                                    <a href="#" class="order-mobile">Заказать</a>
+                                </div>
+                            </article>
+
+                            <!-- Карточка 1 -->
+                            <article class="service-card-mobile">
+                                <div class="card-mobile__header">
+                                    <div class="service-icon-box icon-box--small service-icon-box--light">
+                                        <img src="/frontend/assets/icons/card-icons/armchair-green.svg" alt="">
+                                    </div>
+                                    <h4 class="card-mobile__title">Офис</h4>
+                                    <img src="/frontend/assets/icons/arrow-right.svg" class="card-mobile__arrow" alt="">
+                                </div>
+                                
+                                <div class="card-mobile__tags">
+                                    <div class="tag-mobile">
+                                        <img src="/frontend/assets/icons/cleaner.svg" alt="">
+                                        <span>2 клинер</span>
+                                    </div>
+                                    <div class="tag-mobile">
+                                        <img src="/frontend/assets/icons/clock.svg" alt="">
+                                        <span>2-5 часа</span>
+                                    </div>
+                                </div>
+
+                                <div class="card-mobile__footer">
+                                    <div class="price-mobile">от 4 500 ₽</div>
+                                    <a href="#" class="order-mobile">Заказать</a>
+                                </div>
+                            </article>
+
+                            <!-- Добавьте остальные карточки аналогично -->
+
+                        </div>
+                    </div>
+                    <a href="#" class="mobile-all-services-link">Смотреть все услуги</a>
+                </div>
+            </li>
+
+            <li><a href="#" class="mobile-nav__link">Блог</a></li>
+            <li><a href="#" class="mobile-nav__link">Отзывы</a></li>
+            <li><a href="#" class="mobile-nav__link">Контакты</a></li>
+            <li><a href="#" class="mobile-nav__link">Обучение ДПО</a></li>
+        </ul>
+        
+        <div class="mobile-nav__contacts">
+            <!-- Левая колонка: Мессенджеры -->
+            <div class="mobile-socials">
+                <a href="#"><img src="/frontend/assets/icons/telegram.svg" alt=""></a>
+                <a href="#"><img src="/frontend/assets/icons/max.svg" alt=""></a>
+            </div>
+
+            <!-- Правая колонка: Телефон и ссылка -->
+            <div class="mobile-contacts-info">
+                <a href="tel:+79777170070" class="mobile-phone">+7 977 717 00 70</a>
+                <a href="#" class="mobile-callback">Обратная связь</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1117 @@
+/* Сброс */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+}
+
+/* --- Секция с фоном --- */
+.services-section {
+    position: relative;
+    width: 100%;
+    /* Высота как в Figma, min-height для надежности */
+    min-height: 780px; 
+    /* Добавьте путь к вашему файлу фона */
+    background: url('/frontend/assets/images/bg-hero.jpg') no-repeat center center;
+    background-size: cover;
+    background-color: #CECECE; /* Цвет заглушка */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Основной контейнер 1584px */
+.container {
+    max-width: 1584px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    /* Чтобы высота контейнера растягивалась */
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column; /* Элементы внутри будут идти друг под другом */
+}
+
+/* --- Заголовок --- */
+.services-title {
+    margin-top: 274px; /* Отступ сверху */
+    margin-bottom: 34px; /* Отступ до карточек */
+    font-family: 'SF Pro', 'PT Sans', sans-serif; /* Fallback на PT Sans */
+    font-size: 44px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 53px;
+}
+
+/* --- Обертка слайдера --- */
+.services-slider-wrapper {
+    position: relative;
+}
+
+/* Трек с карточками */
+.services-track {
+    display: flex;
+    gap: 12px;
+    
+    /* 1. Включаем прокрутку */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    
+    /* 7. Исправляем обрезку при наведении (padding создает место для transform) */
+    padding: 10px 5px 20px 5px; 
+    margin: -10px -5px 0 -5px; /* Компенсируем padding, чтобы визуально не сдвигалось */
+    
+    /* Скрываем скроллбар */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.services-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- Карточка --- */
+.service-card {
+    flex: 0 0 254px; /* Фиксированная ширина */
+    width: 254px;
+    height: 267px;
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 18px; /* Внутренний отступ */
+    
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Для абсолютной стрелки */
+    
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Эффект поднятия */
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+/* Блок с хедером и тегами */
+.service-card__top-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Хедер карточки */
+.service-card__header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 14px; /* 4. Отступ 14px до тегов */
+    padding-right: 25px; /* Чтобы текст не наезжал на стрелку */
+
+}
+
+.service-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.service-icon-box--green {
+    background: #68B51C;
+}
+
+.service-icon-box--light {
+    background: #DBF6BF;
+}
+
+.service-icon-box img {
+    width: 22px;
+    height: 22px;
+}
+
+/* Заголовок услуги */
+.service-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 29px; /* 6. Фиксируем высоту строки */
+    max-height: 30px;
+    /* Если текст длинный, он будет переноситься, но оставаться выровненным */
+    display: flex;
+    align-items: center;
+}
+
+/* 5. Стрелка в карточке */
+.service-arrow-icon {
+    /* Убираем position: absolute */
+    position: static; 
+    /* Задаем размер */
+    width: 8px; 
+    height: 16px;
+    /* Отступ 8px от текста */
+    margin-left: 6px; 
+    /* Компенсация margin-top у текста, чтобы стрелка стояла ровно */ 
+    /* Запрещаем сжиматься */
+    flex-shrink: 0;
+}
+
+
+/* Теги */
+.service-card__tags {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 40px; /* 4. Отступ 40px до блока цены */
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #EDF1F7;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 70px;
+    padding: 4px 10px;
+    align-self: flex-start;
+    height: 29px;
+}
+
+.tag img {
+    width: 14px;
+    height: 14px;
+    opacity: 0.9;
+}
+
+.tag span {
+    font-size: 18px;
+    color: #666666;
+    line-height: 21px;
+}
+
+/* Футер карточки (Цена и кнопка) */
+.service-card__footer {
+    margin-top: auto; /* На всякий случай прижимаем к низу */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.service-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 29px;
+}
+
+.service-order-btn {
+    font-size: 22px;
+    font-weight: 700;
+    color: #68B51C;
+    text-decoration: none;
+    line-height: 26px;
+    transition: color 0.2s;
+}
+
+.service-order-btn:hover {
+    color: #5aa016;
+}
+
+/* --- Стрелки навигации слайдера --- */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.2s;
+}
+
+.slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.slider-arrow img {
+    width: 12px; /* Размер галочки */
+}
+
+/* Левая стрелка */
+.slider-arrow--prev {
+    right: 100%; 
+    margin-right: 20px; /* 20px от контейнера */
+}
+
+/* 2. Поворот левой стрелки */
+.slider-arrow--prev img {
+    transform: rotate(180deg);
+}
+
+/* Правая стрелка */
+.slider-arrow--next {
+    left: 100%;
+    margin-left: 20px; /* 20px от контейнера */
+}
+
+/* --- Кнопка "Все услуги" внизу --- */
+.services-action {
+    position: absolute;
+    bottom: 64px;
+    left: 0;
+    width: 100%;
+}
+
+/* 3. Кнопка на всю ширину контейнера */
+.btn-all-services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Растягиваем */
+    height: 70px;
+    background: #68B51C;
+    border-radius: 10px;
+    
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-all-services:hover {
+    background: #5aa016;
+}
+
+/* --- Секция Telegram --- */
+.telegram-section {
+    width: 100%;
+    height: 74px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    /* Если нужен отступ от предыдущего блока, добавьте margin-top */
+}
+
+/* Внутренний контейнер для выравнивания */
+.telegram-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Левая часть --- */
+.telegram-left {
+    display: flex;
+    align-items: center;
+    gap: 14px; /* Высчитано из макета: 225px (текст) - 168px (старт) - 43px (иконка) */
+}
+
+/* Синий круг для иконки */
+.telegram-icon-circle {
+    width: 43px;
+    height: 43px;
+    background-color: #2D7DFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.telegram-icon-circle img {
+    width: 21px;
+    height: 17px; /* Пропорции из макета */
+    object-fit: contain;
+}
+
+/* Текст призыва */
+.telegram-text {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700; /* 510 в SF Pro ≈ Bold в PT Sans */
+    color: #2D7DFF;
+    line-height: 24px;
+}
+
+/* --- Правая часть (Ссылка) --- */
+.telegram-link {
+    display: flex;
+    align-items: center;
+    gap: 22px; /* Отступ между текстом и стрелкой */
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.telegram-link:hover {
+    opacity: 0.8;
+}
+
+.telegram-link span {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700; /* 590 в SF Pro ≈ Bold в PT Sans */
+    color: #2D7DFF;
+    line-height: 26px;
+}
+
+.telegram-link img {
+    width: 10px; /* Примерная ширина стрелки */
+    height: auto;
+}
+
+/* --- Секция Преимуществ --- */
+
+.advantages-section {
+    width: 100%;
+    background-color: #F5F5F5; /* Предположительный фон страницы, если он белый - поменяйте на #FFF */
+    padding-bottom: 120px; /* Отступ снизу от всей секции */
+}
+
+/* 1. Блок с описанием (верхний) */
+.product-description {
+    /* Отступ 44px до телеграма (предполагаем, что телеграм идет ПОСЛЕ этого блока в потоке, 
+       но по заданию "От верхнего текста до блока телеграмма 44px", значит margin-bottom тут) */
+    margin-bottom: 44px; 
+    
+    /* Дополнительные отступы сверху, если нужно отделить от телеграма, 
+       который был ВЫШЕ на макете? 
+       Если телеграм был ВЫШЕ, а текст НИЖЕ, и между ними 44px, то margin-top: 44px.
+       Сделаю универсальный отступ сверху для разделения блоков */
+    padding-top: 44px; 
+
+    width: 100%;
+    max-width: 1184px; /* Ограничиваем ширину текста как в макете */
+    /* Выравнивание текста по левому краю (на макете он смещен влево) */
+    margin-left: 0; 
+}
+
+.product-description p {
+    font-family: 'PT Sans', sans-serif; /* Замена SF Pro */
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    color: #565656;
+}
+
+/* 2. Обертка преимуществ (отступ 100px от блока Telegram/текста) */
+.advantages-wrapper {
+    margin-top: 100px; 
+}
+
+/* Шапка преимуществ */
+.advantages-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 50px; /* Отступ до карточек (не указан явно, взял примерный) */
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.advantages-title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 53px;
+    flex-shrink: 0;
+}
+
+.advantages-subtitle-group {
+    display: flex;
+    gap: 40px; /* Расстояние между двумя текстовыми блоками */
+    max-width: 1000px;
+}
+
+.subtitle-text {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    color: #565656;
+    max-width: 489px;
+}
+
+.text-right {
+    text-align: left; /* В макете текст выровнен влево, просто блок справа */
+    max-width: 467px;
+}
+
+.highlight-green {
+    color: #68B51C;
+}
+
+/* Сетка карточек */
+.advantages-grid {
+    display: grid;
+    /* 4 колонки поровну */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 18px; /* Расстояние между карточками */
+    margin-bottom: 30px; /* Отступ до нижнего блока */
+}
+
+.advantage-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 18px 33px; /* Внутренние отступы */
+    height: 186px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.advantage-card__header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.advantage-icon-box {
+    width: 42px;
+    height: 42px;
+    background: #68B51C;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.advantage-icon-box img {
+    width: 22px;
+    height: 22px;
+}
+
+.advantage-card__title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 29px;
+}
+
+.advantage-card__text {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #565656;
+    line-height: 24px;
+}
+
+/* Нижний блок (Лицензия) */
+.license-block {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 34px 40px; /* Внутренние отступы */
+    height: 184px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.license-text {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #333333;
+    line-height: 29px;
+    max-width: 1079px; /* Ограничение ширины текста */
+}
+
+.btn-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 264px;
+    height: 70px;
+    background: #68B51C;
+    border-radius: 10px;
+    
+    font-family: 'PT Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-more:hover {
+    background: #5aa016;
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Секция Сравнение типов уборок --- */
+.comparison-section {
+    width: 100%;
+    /* Фон такой же, как у преимуществ, чтобы белые карточки выделялись */
+    background-color: #F5F5F5; 
+    padding-bottom: 120px; /* Отступ снизу 120px */
+}
+
+/* Хедер секции */
+.comparison-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 54px; /* Отступ между верхней частью и нижней */
+    gap: 22px;
+}
+
+.comparison-title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 53px;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.comparison-desc {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    color: #999999;
+    max-width: 890px;
+    text-align: left;
+}
+
+.comparison-desc a {
+    color: #2D7DFF;
+    text-decoration: underline;
+}
+
+/* --- Таблица (Grid Layout) --- */
+.comparison-grid {
+    display: grid;
+    /* 
+       Колонка 1: Фикс 342px (как в макете)
+       Колонки 2,3,4: Равные доли (или фикс ~381px, используем 1fr для адаптивности) 
+    */
+    grid-template-columns: 342px repeat(3, 1fr);
+    /* Отступ между колонками 20px */
+    column-gap: 20px;
+    /* Вертикальные отступы внутри грида не задаем глобально, так как у хедера отступ 86px, а у строк 0 */
+}
+
+/* 1. Заголовки (Верхний ряд) */
+
+/* Текст "Параметры" */
+.cmp-header-label {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #999999;
+    align-self: center; /* Центрируем вертикально относительно карточек, если нужно, или start */
+    padding-top: 30px; /* Визуальная компенсация, так как карточки высокие */
+    margin-bottom: 34px; /* Отступ от заголовков до значений */
+}
+
+/* Карточки заголовков */
+.cmp-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    padding: 0 34px; /* Внутренний отступ */
+    gap: 12px;
+    margin-bottom: 34px; /* Отступ от карточек до значений */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03); /* Легкая тень для выделения на сером фоне */
+}
+
+.cmp-card__icon {
+    width: 42px;
+    height: 42px;
+    background: #68B51C;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.cmp-card__icon img {
+    width: 22px;
+    height: 22px;
+}
+
+.cmp-card__title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 29px;
+    margin: 0;
+}
+
+/* 2. Строки значений */
+
+/* Левая колонка (названия параметров) */
+.cmp-row-label {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #565656;
+    line-height: 29px;
+    
+    height: 45px; /* Высота строки как в макете */
+    display: flex;
+    align-items: center;
+    border-bottom: 1.5px solid transparent; /* Невидимая граница для выравнивания с соседями */
+    margin-bottom: 14px; /* Отступ между рядами (gap 14px в frame 220) */
+}
+
+/* Ячейки значений */
+.cmp-row-value {
+    /* 3. Ширина блока 315px (меньше хедера) */
+    width: 315px; 
+    height: 45px;
+    border-bottom: 1.5px solid #E2E2E2;
+    margin-bottom: 14px;
+    
+    /* Центрируем сам блок 315px внутри широкой колонки Grid */
+    justify-self: center; 
+    
+    display: flex;
+    /* 2. Значения прижаты влево внутри блока 315px */
+    justify-content: flex-start; 
+    align-items: center;
+    position: relative;
+}
+
+/* Текстовые значения (Базовая, Глубокая) */
+.text-value {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #565656;
+}
+
+.text-value.text-gray {
+    color: #999999;
+}
+
+/* Иконка галочки */
+.check-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Значок информации (!) */
+.info-badge {
+    width: 18px;
+    height: 18px;
+    background: #D9D9D9;
+    border-radius: 50%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'PT Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #A2A2A2;
+    cursor: help;
+    
+    /* Позиционирование справа, как в макете (absolute внутри flex) */
+    position: absolute;
+    right: 0; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* --- Кнопка "Развернуть все" --- */
+.comparison-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px; /* Отступ от таблицы до кнопки (в макете явно не задан, но нужен визуально) */
+}
+
+.btn-expand {
+    width: 264px;
+    height: 70px;
+    background: #68B51C;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    
+    font-family: 'PT Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 26px;
+    
+    transition: background 0.2s;
+}
+
+.btn-expand:hover {
+    background: #5aa016;
+}
+
+.check-text {
+    font-family: 'PT Sans', sans-serif; /* Или SF Pro, если подключен, но PT Sans глобальный */
+    font-size: 24px;
+    color: #333333;
+    line-height: 29px;
+    font-weight: 400;
+}
+
+/* --- Секция О нас --- */
+.about-section {
+    width: 100%;
+    /* Предполагаем, что фон продолжается серый (#F5F5F5) от предыдущей секции. 
+       Если нужен белый - поставьте #FFFFFF */
+    background-color: #F5F5F5; 
+    padding-bottom: 120px; /* Отступ снизу 120px */
+}
+
+/* Хедер секции */
+.about-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    margin-bottom: 54px; /* Отступ до карточек */
+}
+
+.about-title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 53px;
+    margin: 0;
+}
+
+.about-subtitle {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #565656;
+    line-height: 29px;
+    margin: 0;
+}
+
+/* Обертка контента */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    /* Карточки и картинка */
+}
+
+/* Сетка карточек */
+.about-cards-grid {
+    display: grid;
+    /* 4 колонки равной ширины */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px; /* Расстояние между карточками */
+    margin-bottom: 34px; /* Отступ до картинки */
+}
+
+/* --- Карточка --- */
+.about-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    height: 370px; /* Фиксированная высота как в макете */
+    padding: 31px 22px; /* Внутренние отступы (примерные для центровки) */
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+/* Верхняя часть карточки (Иконка + Заголовок) */
+.about-card__top {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px; /* Отступ между иконкой и текстом */
+    margin-bottom: 31px; /* Чтобы текст описания прижимался к низу, если нужно, или просто отступ */
+}
+
+/* Блок иконки */
+.about-icon-box {
+    width: 52px;
+    height: 52px;
+    background: #68B51C;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+}
+
+.about-icon-box img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Заголовок карточки */
+.about-card__title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 29px;
+    margin: 0;
+    margin-top: 0px; /* Выравнивание с иконкой */
+    transition: color 0.3s ease;
+}
+
+/* Текст карточки */
+.about-card__text {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #666666;
+    line-height: 29px;
+    
+    margin: 0; /* Визуальный отступ снизу */
+    transition: color 0.3s ease;
+}
+
+/* --- Эффекты наведения (Hover) --- */
+
+/* 1. Наведение на обычную белую карточку */
+.about-card:hover {
+    background: #5DA615; /* Зеленый фон */
+}
+
+.about-card:hover .about-card__title {
+    color: #FFFFFF;
+}
+
+.about-card:hover .about-card__text {
+    color: #FFFFFF;
+}
+
+.about-card:hover .about-icon-box {
+    background: #418102; /* Темно-зеленый фон иконки */
+}
+
+.about-card--active .about-card__title {
+    color: #FFFFFF;
+}
+
+.about-card--active .about-card__text {
+    color: #FFFFFF;
+}
+
+.about-card--active .about-icon-box {
+    background: #418102;
+}
+
+/* Если наводим на активную карточку - ничего не меняется (она уже зеленая), 
+   либо можно добавить легкое затемнение, но по ТЗ это не требуется. */
+
+/* --- Большая картинка --- */
+.about-image-wrapper {
+    width: 1584px;
+    height: 566px;
+    border-radius: 20px;
+    overflow: hidden; /* Чтобы картинка не вылезала за скругления */
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заполняет блок, обрезая лишнее */
+    display: block;
+}
+
+/* --- Секция 1: Дополнительные услуги --- */
+.additional-services-section {
+    width: 100%;
+    background-color: #F5F5F5;
+    /* Отступ снизу 80px (расстояние до картинки баннера следующей секции) */
+    padding-bottom: 80px; 
+}
+
+/* Заголовок */
+.additional-title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 53px;
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+/* Сетка (Обертка рядов) */
+.additional-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Ряды карточек */
+.add-row {
+    display: flex;
+    gap: 18px;
+    width: 100%;
+}
+
+/* Стиль карточки */
+.add-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    height: 208px;
+    padding: 34px 33px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.add-card__title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 29px;
+    margin: 0;
+}
+
+.add-card__text {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #666666;
+    line-height: 29px;
+    margin: 0;
+}
+
+/* Расчет ширины карточек */
+.add-row--4 .add-card { width: calc((100% - 54px) / 4); }
+.add-row--3 .add-card { width: calc((100% - 36px) / 3); }
+.add-row--2 .add-card { width: calc((100% - 18px) / 2); }
+
+
+/* --- Секция 2: Заказать уборку --- */
+.order-section {
+    width: 100%;
+    background-color: #F5F5F5; /* Фон продолжается */
+    padding-bottom: 120px; /* Финальный отступ снизу */
+    position: relative;
+}
+
+/* CTA Баннер (Заказать уборку) */
+.cta-banner {
+    position: relative;
+    width: 1584px;
+    height: 356px;
+    border-radius: 20px;
+    /* margin-top убран, отступ задан через padding-bottom предыдущей секции */
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+.cta-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.cta-title {
+    position: relative;
+    z-index: 2;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 53px;
+    margin-top: 64px;
+    margin-left: 34px;
+    width: 483px;
+}
+
+.cta-btn {
+    position: absolute;
+    z-index: 2;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1516px;
+    height: 74px;
+    background: #68B51C;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.cta-btn:hover {
+    background: #5aa016;
+}
+
+.cta-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+.cta-btn span {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 26px;
+}
+
+/* --- Виджет в углу (картинка) --- */
+.section-widget {
+    /* Прижимаем сам блок виджета к правому краю контейнера */
+    align-self: flex-end; 
+    
+    /* Отступ сверху от CTA баннера (подберите по вкусу) */
+    margin-top: 40px; 
+}
+
+.section-widget img {
+    display: block;
+    height: auto;
+    cursor: pointer;
+}

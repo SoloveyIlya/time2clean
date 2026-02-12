@@ -1,0 +1,924 @@
+/* Сброс стилей */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    background-color: #f5f5f5;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Переменные цветов */
+:root {
+    --color-dark: #333333;
+    --color-gray: #565656;
+    --color-green: #68B51C;
+    --color-bg-dark: #2C2C2C;
+    --color-bg-white: #FFFFFF;
+}
+
+.container {
+    max-width: 1584px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.header {
+    width: 100%;
+    background: var(--color-bg-white);
+    position: relative;
+    z-index: 100; /* Хедер поверх всего */
+}
+
+/* --- Верхняя полоса --- */
+.header__top-bar {
+    background-color: var(--color-bg-dark);
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* Убрали синюю полосу */
+}
+
+.header__top-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1;
+}
+
+.header__top-text {
+    font-size: 10px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.header__top-icon {
+    height: 9px;
+    width: auto;
+    display: block;
+    margin-top: 1px;
+}
+
+/* --- Основная часть --- */
+.header__main {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    position: relative;
+    z-index: 101; /* Выше мобильного меню */
+}
+
+.header__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Логотип */
+.header__logo-img {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+/* Навигация (Десктоп) */
+.header__nav {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.nav__link {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+    cursor: pointer;
+    position: relative; /* Важно для дропдауна */
+    padding: 10px 0; /* Увеличиваем область клика/наведения */
+}
+
+.nav__link:hover {
+    color: var(--color-green);
+}
+
+.nav__arrow {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Дропдауны десктоп */
+.nav__item {
+    position: relative;
+}
+
+.nav__dropdown {
+    position: absolute;
+    top: 100%; /* Появляется сразу под ссылкой */
+    left: -10px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    min-width: 200px;
+    padding: 10px 0;
+    border-radius: 4px;
+    
+    /* Скрытие */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 200;
+}
+
+/* Логика появления при наведении на li */
+.nav__item--has-dropdown:hover .nav__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav__item--has-dropdown:hover .nav__arrow {
+    transform: rotate(180deg);
+}
+
+.nav__dropdown-link {
+    display: block;
+    padding: 10px 20px;
+    color: var(--color-dark);
+    font-size: 16px;
+}
+
+.nav__dropdown-link:hover {
+    background: #f9f9f9;
+    color: var(--color-green);
+}
+
+/* Правая часть */
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header__info-group {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.header__phone {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-gray);
+}
+.header__callback {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-green);
+    text-decoration: underline;
+}
+
+.header__socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.social__link { width: 44px; height: 44px; transition: 0.2s; }
+.social__link:hover { transform: scale(1.05); }
+
+/* Мобильные элементы */
+.header__mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cart__link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    transition: color 0.2s ease;
+}
+
+/* Эффект при наведении (Подсветка) */
+.cart__link:hover {
+    color: var(--color-green);
+}
+
+.cart__link:hover .cart__icon {
+    transform: scale(1.1); /* Легкое увеличение иконки */
+}
+
+.cart__icon-wrapper {
+    position: relative; /* Чтобы цифра позиционировалась относительно иконки */
+    width: 28px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart__icon {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease;
+}
+
+.cart__count {
+    position: absolute;
+    bottom: -2px;       /* Сдвигаем вниз */
+    right: -6px;        /* Сдвигаем вправо */
+    
+    font-size: 14px;    /* Размер цифры */
+    font-weight: 700;   /* Жирность */
+    color: var(--color-dark); /* Цвет цифры (черный) */
+    background: #fff;   /* Белый фон, чтобы цифра читалась поверх линий корзины */
+    padding: 0 2px;     /* Небольшой отступ вокруг цифры */
+    line-height: 1;
+    border-radius: 4px;
+}
+
+/* Цвет цифры тоже меняется при наведении */
+.cart__link:hover .cart__count {
+    color: var(--color-green);
+}
+
+
+/* Бургер */
+.header__burger {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+}
+.header__burger img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* --- Мобильное меню (Выпадающее) --- */
+.header__mobile-menu {
+    position: absolute;
+    top: 100%; /* Сразу под хедером */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #eee;
+    
+    /* Скрытие */
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden; /* Обрезает контент */
+    
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 90;
+}
+
+/* Класс active добавляется JS при клике на бургер */
+.header__mobile-menu.active {
+    max-height: 800px; /* Достаточно много, чтобы влезло всё */
+    opacity: 1;
+    visibility: visible;
+    padding-bottom: 30px;
+}
+
+.mobile-nav__list {
+    padding: 20px 30px;
+}
+
+/* Стили ссылок в мобилке */
+.mobile-nav__link, 
+.mobile-nav__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-dark);
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+}
+
+/* Аккордеон в мобильном меню */
+.mobile-nav__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background-color: #fcfcfc;
+}
+
+.mobile-nav__sublink {
+    display: block;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #555;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+/* Состояние "Открыто" для группы */
+.mobile-nav__group.open .mobile-nav__content {
+    max-height: 300px; /* Высота подменю */
+}
+
+.mobile-nav__group.open .mobile-arrow {
+    transform: rotate(180deg);
+}
+
+.mobile-arrow {
+    width: 12px;
+    transition: transform 0.3s;
+}
+
+/* Контакты мобилка */
+.mobile-nav__contacts {
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mobile-phone {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+.mobile-callback {
+    font-size: 16px;
+    color: var(--color-green);
+    text-decoration: underline;
+}
+
+.mobile-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+.mobile-socials img {
+    width: 40px;
+    height: 40px;
+}
+
+/* ==========================================================================
+   МЕГА-МЕНЮ (УСЛУГИ) В ХЕДЕРЕ
+   ========================================================================== */
+
+/* 1. Логика позиционирования */
+@media (min-width: 993px) {
+    /* Чтобы мега-меню растягивалось на весь экран, отключаем relative у родителя */
+    #services-menu-trigger {
+        position: static; 
+    }
+}
+
+.header__main {
+    position: relative; /* Точка отсчета для абсолютного меню */
+}
+
+.nav__link-icon {
+    display: none; /* Скрыта по умолчанию */
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+}
+
+#services-menu-trigger.is-active .nav__link-icon {
+    display: block;
+}
+
+/* 2. Основной контейнер выпадающего меню */
+.header-mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #F7F7F7;
+    padding: 34px 0 60px 0;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+    z-index: 150;
+}
+
+.header-mega-menu.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 3. Шапка меню (Заголовок + Кнопка) */
+.mega-menu__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mega-menu__title {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: #333333;
+}
+
+.btn-all-services-mega {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 226px;
+    height: 70px;
+    background: #68B51C;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    transition: background 0.2s;
+}
+
+.btn-all-services-mega:hover {
+    background: #5aa016;
+}
+
+btn-all-services-mega__icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+/* 4. Сетка карточек (6 колонок по 244px) */
+.mega-menu__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 244px); 
+    column-gap: 12px;
+    row-gap: 14px;
+    margin-top: 34px; /* Расстояние от хедера меню до карточек */
+}
+
+/* 5. Стили карточки услуги */
+.mega-menu__grid .service-card {
+    width: 244px;
+    min-height: 267px; /* Высота может расти, если текст длинный */
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* Убираем ховер-эффекты для меню, чтобы не перекрывали навигацию */
+    transition: box-shadow 0.2s ease;
+}
+
+.mega-menu__grid .service-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Заголовок и иконка */
+.service-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.service-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.service-icon-box--green { background: #68B51C; }
+.service-icon-box--light { background: #DBF6BF; }
+
+.service-icon-box img {
+    width: 22px;
+    height: 22px;
+}
+
+.service-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 1.1; /* Уплотняем межстрочный интервал */
+    white-space: normal; /* Разрешаем перенос */
+    display: block;
+    max-width: 100px; /* Ограничиваем ширину, чтобы текст "сломался" на две строки */
+}
+
+/* Иконка-стрелка после текста */
+.service-arrow-icon {
+    width: 8px;
+    height: 14px;
+    margin-left: 6px;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+/* Блок тегов (Второй блок) */
+.service-card__tags {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    /* Расстояние 40px до третьего блока (футера) */
+    margin-bottom: 40px; 
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #EDF1F7;
+    border-radius: 70px;
+    padding: 4px 10px;
+    height: 26px;
+    align-self: flex-start;
+}
+
+.tag img {
+    width: 14px;
+    height: 14px;
+}
+
+.tag span {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1;
+}
+
+/* Футер карточки (Третий блок) */
+.service-card__footer {
+    margin-top: auto; /* Прижимает к низу */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.service-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 29px;
+}
+
+.service-order-btn {
+    font-size: 22px;
+    font-weight: 700;
+    color: #68B51C;
+    line-height: 26px;
+    text-decoration: none;
+}
+
+.service-order-btn:hover {
+    color: #5aa016;
+}
+
+/* Поворот стрелки в основном меню */
+#services-menu-trigger.is-active .nav__arrow {
+    transform: rotate(180deg);
+}
+
+#services-menu-trigger.is-active .nav__link {
+    color: #68B51C;
+}
+
+@media (max-width: 992px) {
+    
+    .desktop-only {
+        display: none !important;
+    }
+
+    .header__burger {
+        display: block;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .header__logo-img {
+        height: 50px;
+    }
+
+    .header__main {
+        padding: 5px 0;
+    }
+
+    .header__mobile-controls {
+        gap: 15px;
+    }
+
+    .cart__icon {
+        width: 32px;
+    }
+
+    .cart__icon {
+        width: 32px; /* На мобильном иконка чуть крупнее */
+    }
+
+    .cart__count {
+        font-size: 16px; /* Цифра крупнее на телефоне */
+        bottom: -4px;
+        right: -8px;
+    }
+
+    .mobile-nav__contacts {
+        display: flex;
+        flex-direction: row; /* В одну строку */
+        justify-content: space-between; /* Разносим по краям */
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .header__mobile-menu {
+        background-color: #F7F7F7;
+        padding-top: 20px;
+    }
+
+    .mobile-nav__list {
+         gap: 0; 
+    }
+
+    .mobile-nav__list > li > .mobile-nav__link {
+        margin-bottom: 10px;
+    }
+
+    /* --- 3. Отображение элементов меню (Frame 438) --- */
+    .mobile-nav__link, 
+    .mobile-nav__header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        
+        padding: 14px;
+        width: 100%;
+        max-width: 350px; /* Ограничение по фигме */
+        height: 47px;
+        margin: 0 auto; /* Центрирование плашки */
+
+        background: #FFFFFF;
+        border-radius: 10px;
+        border-bottom: none; /* Убираем старую линию */
+        
+        font-size: 16px; /* Подкорректировал под высоту 47px */
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #333333;
+    }
+
+    /* Убираем лишние отступы у текста в плашке */
+    .mobile-nav__title {
+        font-size: 16px;
+    }
+
+    /* Контейнер выпадающего списка Услуг (внутри аккордеона) */
+
+
+    /* --- 2. Контакты и соцсети --- */
+    .mobile-nav__content {
+        background-color: #F7F7F7 !important;
+        border-radius: 0 0 10px 10px;
+        /* Небольшой отступ сверху, чтобы перекрыть скругление заголовка, если нужно */
+        margin-top: -5px; 
+        padding-top: 10px;
+        position: relative;
+        z-index: 1; /* Чтобы перекрыть низ заголовка */
+    }
+
+    .mobile-socials {
+        display: flex;
+        gap: 12px;
+        /* Прижимаем влево (по умолчанию flex-row так и делает) */
+    }
+
+    .mobile-socials img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mobile-contacts-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Прижимаем вправо */
+        gap: 2px;
+    }
+
+    .mobile-phone {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    /* --- 1. Уборка строки "Просмотреть все" --- */
+    /* (Если вы удалили её из HTML, этот стиль не нужен, но на всякий случай) */
+    .mobile-all-services-link {
+        display: none !important;
+    }
+
+
+        /* Контейнер для скролла */
+    .mobile-services-container {
+        width: 100%;
+        overflow: hidden;
+        padding: 15px 0;
+    }
+
+    .mobile-services-scroll {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding: 0 30px; /* Отступы по краям как у всего меню */
+        scroll-snap-type: x mandatory;
+        /* Скрываем скроллбар */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .mobile-services-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* --- Мобильная карточка (173x129) --- */
+    .service-card-mobile {
+        flex: 0 0 173px;
+        width: 173px;
+        height: 129px;
+        background: #FFFFFF;
+        border-radius: 10px;
+        padding: 12px;
+        position: relative;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-mobile__header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Прижимает всё влево */
+        gap: 8px; /* Расстояние между иконкой, текстом и стрелкой */
+        margin-bottom: 8px;
+    }
+
+    .icon-box--small {
+        width: 24px !important;
+        height: 24px !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        flex-shrink: 0;
+    }
+
+    .icon-box--small img {
+        width: 12px !important;
+        height: 12px !important;
+        display: block !important;
+    }
+
+    .card-mobile__title {
+        font-size: 16px;
+        font-weight: 510;
+        color: #333;
+        line-height: 19px;
+        max-width: 60px;
+    }
+
+    .card-mobile__arrow {
+        width: 4px;
+        height: 8px;
+        margin-left: 2px; /* Небольшой отступ от текста */
+        flex-shrink: 0;
+    }
+
+    /* Теги мобильные (9px) */
+    .card-mobile__tags {
+        display: flex;
+        gap: 2px;
+        margin-bottom: auto;
+    }
+
+    .tag-mobile {
+        background: #EDF1F7;
+        border-radius: 70px;
+        padding: 4px 8px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        height: 19px;
+    }
+
+    .tag-mobile span {
+        font-size: 9px;
+        font-weight: 510;
+        color: #666;
+        white-space: nowrap;
+    }
+
+    .tag-mobile img {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* Футер мобильный (14px) */
+    .card-mobile__footer {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .price-mobile {
+        font-size: 14px;
+        font-weight: 510;
+        color: #333;
+        line-height: 17px;
+    }
+
+    .order-mobile {
+        font-size: 14px;
+        font-weight: 590;
+        color: #68B51C;
+        line-height: 17px;
+    }
+
+    /* Ссылка "Смотреть все" под скроллом */
+    .mobile-all-services-link {
+        display: block;
+        padding: 10px 30px;
+        color: #68B51C;
+        font-weight: 700;
+        text-decoration: underline;
+        font-size: 14px;
+    }
+
+    .mobile-phone {
+        font-size: 18px;
+        font-weight: 700;
+        color: #333;
+        white-space: nowrap;
+    }
+
+    .mobile-callback {
+        font-size: 14px;
+        color: #68B51C;
+        text-decoration: underline;
+    }
+
+    .service-icon-box--light {
+        background-color: #DBF6BF !important;
+    }
+}
