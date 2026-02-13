@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы — Time2Clean</title>
+    <link rel="stylesheet" href="/frontend/css/reviews.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="reviews-page">
+        <div class="container">
+            
+            <!-- Секция 1: Заголовок и описание -->
+            <header class="reviews-intro">
+                <h1 class="reviews-intro__title">О нас говорят клиенты</h1>
+                <div class="reviews-intro__mission">
+                    <p>Мы заботимся о чистоте вашего дома, офиса или коттеджа.</p>
+                    <p>Рады видеть ваши отзывы о компании Time2Clean в <a href="#" class="link-green">Google</a> и <a href="#" class="link-green">Yandex</a>.</p>
+                </div>
+            </header>
+
+            <!-- Секция 2: Виджеты и Скролл отзывов -->
+            <section class="reviews-main-grid">
+                <!-- Левая часть: Статичный виджет Яндекса (скриншот) -->
+                <div class="reviews-widget-box">
+                    <img src="/frontend/assets/images/Reviews-and-letters/yandex-widget.jpg" alt="Рейтинг на Яндекс Картах">
+                </div>
+
+                <!-- Правая часть: Длинная картинка со скроллом -->
+                <!-- Правая колонка: Заголовок + Скролл с карточками -->
+                <!-- Правая колонка: Единый белый блок с заголовком и скроллом внутри -->
+                <div class="reviews-right-col">
+                    <!-- Заголовок теперь внутри белого блока -->
+                    <h2 class="other-reviews-title">Другие отзывы наших клиентов</h2>
+                    
+                    <div class="reviews-scroll-container">
+                        <!-- Вложенные блоки отзывов (Frame 328) -->
+                        <div class="review-item">
+                            <img src="/frontend/assets/images/Reviews-and-letters/review-card-1.jpg" alt="Отзыв">
+                        </div>
+                        <div class="review-item">
+                            <img src="/frontend/assets/images/Reviews-and-letters/review-card-2.jpg" alt="Отзыв">
+                        </div>
+                        <div class="review-item">
+                            <img src="/frontend/assets/images/Reviews-and-letters/review-card-3.jpg" alt="Отзыв">
+                        </div>
+                        <div class="review-item">
+                            <img src="/frontend/assets/images/Reviews-and-letters/review-card-4.jpg" alt="Отзыв">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция 3: Благодарственные письма -->
+            <section class="letters-section">
+                <h2 class="letters-title">Благодарственные письма</h2>
+                
+                <div class="letters-grid">
+                    <div class="letter-item">
+                        <img src="/frontend/assets/images/Reviews-and-letters/letter-1.jpg" alt="Благодарственное письмо">
+                    </div>
+                    <div class="letter-item">
+                        <img src="/frontend/assets/images/Reviews-and-letters/letter-2.jpg" alt="Благодарственное письмо">
+                    </div>
+                    <div class="letter-item">
+                        <img src="/frontend/assets/images/Reviews-and-letters/letter-3.jpg" alt="Благодарственное письмо">
+                    </div>
+                    <div class="letter-item">
+                        <img src="/frontend/assets/images/Reviews-and-letters/letter-4.jpg" alt="Благодарственное письмо">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>

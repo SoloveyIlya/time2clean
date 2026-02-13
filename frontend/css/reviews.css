@@ -1,0 +1,219 @@
+/* ==========================================================================
+   Сброс и База
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    background-color: #F7F7F7;
+    color: #333333;
+}
+
+/* Контейнер: 1584 контент + 60 падинги = 1644 */
+.container {
+    max-width: 1584px; 
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+/* ==========================================================================
+   Секция 1: Intro (Заголовок слева, Текст справа)
+   ========================================================================== */
+.reviews-page {
+    padding-top: 34px;
+}
+
+.reviews-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.reviews-intro__title {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 53px;
+    max-width: 500px;
+}
+
+.reviews-intro__mission {
+    font-size: 24px;
+    line-height: 29px;
+    color: #666666;
+    max-width: 743px;
+    text-align: left; /* Прижато вправо */
+}
+
+.link-green {
+    color: #68B51C;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   Секция 2: Сетка (Яндекс + Отзывы со скроллом)
+   ========================================================================== */
+.reviews-main-grid {
+    display: grid;
+    /* 516px лево, 1050px право, 18px gap */
+    grid-template-columns: 516px 1050px;
+    gap: 18px;
+    margin-bottom: 100px;
+}
+
+/* Левая часть */
+.reviews-widget-box {
+    width: 516px;
+    height: 736px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+.reviews-widget-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Правая часть: Основной белый блок --- */
+.reviews-right-col {
+    width: 1050px;
+    height: 736px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 33px; /* Внутренний отступ основного блока */
+    display: flex;
+    flex-direction: column;
+}
+
+.other-reviews-title {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 53px;
+    margin-bottom: 24px; /* Отступ от заголовка до списка отзывов */
+}
+
+/* --- Контейнер для скролла отзывов --- */
+.reviews-scroll-container {
+    flex-grow: 1; /* Занимает всё оставшееся место */
+    overflow-y: scroll; /* Скролл всегда виден */
+    display: flex;
+    flex-direction: column;
+    gap: 14px; /* Расстояние между блоками отзывов */
+    padding-right: 10px; /* Отступ от блоков до полосы прокрутки */
+}
+
+/* --- Карточка отзыва (Frame 328) --- */
+.review-item {
+    box-sizing: border-box;
+    width: 968px;
+    height: 179px;
+    flex-shrink: 0; /* Чтобы блоки не сжимались */
+
+    background: #FFFFFF;
+    border: 1.5px solid #E2E2E2;
+    border-radius: 20px;
+    padding: 14px; /* Внутренние отступы карточки */
+    
+    display: flex;
+    align-items: center; /* Центрирование картинки по вертикали */
+    justify-content: flex-start; /* Прижать содержимое влево */
+}
+
+.review-item img {
+    max-height: 100%; /* Картинка не выше блока */
+    max-width: 100%; /* Картинка не шире блока */
+    width: auto; /* Не растягиваем по ширине */
+    height: auto;
+    display: block;
+    object-fit: contain; /* Сохраняем пропорции скриншота */
+}
+
+/* --- Стилизация скроллбара (чтобы был аккуратным) --- */
+.reviews-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+.reviews-scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.reviews-scroll-container::-webkit-scrollbar-thumb {
+    background: #E2E2E2;
+    border-radius: 10px;
+}
+.reviews-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #68B51C;
+}
+
+/* ==========================================================================
+   Секция 3: Письма
+   ========================================================================== */
+.letters-section {
+    padding-bottom: 120px;
+}
+
+.letters-title {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 34px;
+}
+
+.letters-grid {
+    display: flex;
+    gap: 18px;
+}
+
+.letter-item {
+    width: 383px;
+    height: 510px;
+    background: #FFFFFF;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter-item img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   Адаптивность
+   ========================================================================== */
+@media (max-width: 1600px) {
+    .reviews-main-grid {
+        grid-template-columns: 1fr 2fr;
+        width: 100%;
+    }
+    .reviews-widget-box, .reviews-scroll-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .reviews-main-grid {
+        grid-template-columns: 1fr;
+    }
+    .letters-grid {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews-intro {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .reviews-page {
+        padding-top: 80px;
+    }
+}
