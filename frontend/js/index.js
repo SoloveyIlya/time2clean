@@ -14,3 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
             track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
     });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.cleaning-tab');
+    const slides = document.querySelectorAll('.cleaning-slide');
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+            // 1. Убираем активный класс у всех кнопок
+            tabs.forEach(t => t.classList.remove('active'));
+            // 2. Убираем активный класс у всех слайдов
+            slides.forEach(s => s.classList.remove('active'));
+
+            // 3. Добавляем активный класс нажатой кнопке
+            tab.classList.add('active');
+            // 4. Показываем соответствующий слайд
+            slides[index].classList.add('active');
+        });
+    });
+});

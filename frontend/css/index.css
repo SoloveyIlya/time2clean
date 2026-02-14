@@ -9,6 +9,7 @@
 
 body {
     font-family: 'PT Sans', sans-serif;
+    background-color: #F7F7F7;
 }
 
 /* Основной контейнер 1584px */
@@ -527,6 +528,183 @@ body {
 .btn-more:hover {
     background: #5aa016;
 }
+
+/* =========================================
+   5. Секция "Узнайте подробнее про уборку"
+   ========================================= */
+.interactive-cleaning-section {
+    width: 100%;
+    /* Отступ сверху нет, снизу 140px (от кнопки до след. блока) */
+    padding-bottom: 140px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 1. Заголовок и табы */
+.cleaning-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 34px; /* Отступ от табов до картинки */
+    width: 100%;
+}
+
+.cleaning-title {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53px;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 24px; /* Отступ от заголовка до табов */
+}
+
+.cleaning-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cleaning-tab {
+    /* Размер зависит от текста (padding) */
+    padding: 22px 28px; 
+    height: 70px;
+    border-radius: 10px;
+    border: none;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700; /* В макете не указан, но обычно bold */
+    font-size: 18px; /* Примерный размер, в фигме не видно */
+    cursor: pointer;
+    transition: background 0.2s;
+    
+    /* Дефолтное состояние (неактивное) */
+    background: rgba(104, 181, 28, 0.2); /* Прозрачный зеленый */
+    color: #68B51C; /* Зеленый текст */
+}
+
+.cleaning-tab.active {
+    background: #68B51C;
+    color: #FFFFFF;
+}
+
+.cleaning-tab:hover:not(.active) {
+    background: rgba(104, 181, 28, 0.3);
+}
+
+/* 2. Визуальный блок (Картинка) */
+.cleaning-visual {
+    position: relative;
+    width: 100%;
+    max-width: 1920px; /* Ограничение ширины */
+    height: 890px;
+    border-radius: 20px;
+    overflow: hidden; /* Скругляем углы картинки */
+    background: #FFFFFF; /* На всякий случай */
+    margin-bottom: 34px; /* Отступ до нижней кнопки (в ТЗ не указан, взял симметрично) */
+}
+
+.cleaning-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Стили для системы слайдов --- */
+.cleaning-visual {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: 890px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 34px;
+    background: #eee; /* Заглушка до загрузки фото */
+}
+
+.cleaning-slide {
+    display: none; /* По умолчанию скрыты */
+    width: 100%;
+    height: 100%;
+    position: relative; /* Чтобы точки внутри позиционировались относительно слайда */
+}
+
+.cleaning-slide.active {
+    display: block; /* Показываем только активный */
+    animation: fadeIn 0.4s ease; /* Легкое появление */
+}
+
+.cleaning-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+/* Стили кнопок-табов остаются прежними, как в прошлом шаге */
+
+/* 3. Нижняя кнопка */
+.cleaning-action {
+    /* Ширина контейнера 1584px */
+    width: 1584px; 
+    display: flex;
+    justify-content: center;
+}
+
+.btn-all-services-green {
+    width: 100%; /* Растягиваем на всю ширину 1584px */
+    height: 70px;
+    background: #68B51C;
+    border-radius: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-all-services-green:hover {
+    background: #5aa016;
+}
+
+/* Адаптив */
+@media (max-width: 1600px) {
+    .cleaning-action {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .cleaning-visual {
+        height: 500px; /* Уменьшаем высоту на мобильном */
+    }
+    
+    .cleaning-title {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+    
+    .cleaning-tab {
+        padding: 15px 20px;
+        height: auto;
+        font-size: 16px;
+    }
+}
+
 
 /* =========================================
    5. Секция Сравнения

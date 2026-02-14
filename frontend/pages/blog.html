@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог об уборке — Time2Clean</title>
+    <link rel="stylesheet" href="/frontend/css/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="/frontend/js/blog.js" defer></script>
+</head>
+<body>
+
+    <main class="blog-page">
+        <div class="container">
+            
+            <!-- Секция 1: Заголовок и описание -->
+            <header class="blog-intro">
+                <h1 class="blog-intro__title">Блог об уборке</h1>
+                <p class="blog-intro__desc">
+                    Вы узнаете, как отчистить трудновыводимые пятна и как вернуть ковру яркость. Как из чайника вычистить накипь и как убрать запахи из микроволновки. А если вам нужна уборка в Московской области, смело нажимайте на кнопку и заказывайте клининг!
+                </p>
+            </header>
+
+            <!-- Секция 2: Рубрикатор (скролл) -->
+            <section class="blog-categories">
+                <h2 class="blog-categories__title">Рубрики блога</h2>
+                
+                <div class="categories-scroll-wrapper">
+                    <div class="categories-track">
+                        <!-- Активная рубрика (пример) -->
+                        <button class="category-pill active">После ремонта</button>
+                        <button class="category-pill">Советы по уборке</button>
+                        <button class="category-pill">Уборка в комнатах</button>
+                        <button class="category-pill">Уборка ванной и туалета</button>
+                        <button class="category-pill">Уборка на кухне</button>
+                        <button class="category-pill">Удаление пятен</button>
+                        <button class="category-pill">Уход за поверхностями</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция 3: Сетка статей -->
+            <div class="blog-grid">
+                
+                <!-- Карточка статьи 1 -->
+                <article class="blog-card">
+                    <div class="blog-card__image-box">
+                        <img src="/frontend/assets/images/blog/post-1.jpg" alt="Уборка ковра">
+                        
+                        <!-- Теги внутри картинки (скролл) -->
+                        <div class="card-tags-scroll">
+                            <span class="card-tag">Советы по уборке</span>
+                            <span class="card-tag">Удаление пятен</span>
+                            <span class="card-tag">Уход за поверхностями</span>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <h3 class="blog-card__title">Удаление пятен с ковров и ковролинов</h3>
+                            <time class="blog-card__date">Май 25, 2023</time>
+                        </div>
+                        <p class="blog-card__excerpt">
+                            Еще наши мамы и бабушки использовали для решения самых разных бытовых вопросов хозяйственное мыло. Этот простой...
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Карточка статьи 2 -->
+                <article class="blog-card">
+                    <div class="blog-card__image-box">
+                        <img src="/frontend/assets/images/blog/post-2.jpg" alt="Мыло">
+                        <div class="card-tags-scroll">
+                            <span class="card-tag">Удаление пятен</span>
+                        </div>
+                    </div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <h3 class="blog-card__title">О хозяйственном мыле в быту</h3>
+                            <time class="blog-card__date">Июн 15, 2023</time>
+                        </div>
+                        <p class="blog-card__excerpt">
+                            Дорогие, друзья! Сегодня мы хотим рассказать вам о том, как удалить пятна с ковров и ковролинов...
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Карточка статьи 3 -->
+                <article class="blog-card">
+                    <div class="blog-card__image-box">
+                        <img src="/frontend/assets/images/blog/post-3.jpg" alt="Порядок">
+                        <div class="card-tags-scroll">
+                            <span class="card-tag">Советы по уборке</span>
+                        </div>
+                    </div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <h3 class="blog-card__title">Порядок в шкафах и на полках</h3>
+                            <time class="blog-card__date">Май 18, 2023</time>
+                        </div>
+                        <p class="blog-card__excerpt">
+                            Ванная комната Ванная комната – это место, где мы проводим время, заботимся о себе и готовимся к новому дню. Поэтому, чтобы...
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Карточка статьи 4 -->
+                <article class="blog-card">
+                    <div class="blog-card__image-box">
+                        <img src="/frontend/assets/images/blog/post-4.jpg" alt="Мыло">
+                        <div class="card-tags-scroll">
+                            <span class="card-tag">Удаление пятен</span>
+                        </div>
+                    </div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <h3 class="blog-card__title">О хозяйственном мыле в быту</h3>
+                            <time class="blog-card__date">Май 11, 2023</time>
+                        </div>
+                        <p class="blog-card__excerpt">
+                            Инструменты чистоты Многие люди считают, что уборка - это просто мытье полов и протирание пыли. Но это далеко не все, что...
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Карточка статьи 5 -->
+                <article class="blog-card">
+                    <div class="blog-card__image-box">
+                        <img src="/frontend/assets/images/blog/post-5.jpg" alt="Линолеум">
+                        <div class="card-tags-scroll">
+                            <span class="card-tag">Удаление пятен</span>
+                            <span class="card-tag">Уход за поверхностями</span>
+                        </div>
+                    </div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <h3 class="blog-card__title">Уход за линолеумом</h3>
+                            <time class="blog-card__date">Май 4, 2023</time>
+                        </div>
+                        <p class="blog-card__excerpt">
+                            Уборка линолеума Линолеум является одним из самых популярных типов напольных покрытий благодаря своей прочности...
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Карточка статьи 6 -->
+                <article class="blog-card">
+                    <div class="blog-card__image-box">
+                        <img src="/frontend/assets/images/blog/post-6.jpg" alt="Пылесос">
+                        <div class="card-tags-scroll">
+                            <span class="card-tag">Удаление пятен</span>
+                        </div>
+                    </div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <h3 class="blog-card__title">Особенности уборки пылесосами</h3>
+                            <time class="blog-card__date">Апр 24, 2023</time>
+                        </div>
+                        <p class="blog-card__excerpt">
+                            Уборка моющим пылесосом Идеально чистая и уютная квартира — мечта каждой домохозяйки. Но как добиться качественно...
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

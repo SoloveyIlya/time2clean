@@ -1,0 +1,265 @@
+/* ==========================================================================
+   Сброс и База
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    background-color: #F7F7F7;
+    color: #333333;
+}
+
+.container {
+    max-width: 1584px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* ==========================================================================
+   Секция 1: Intro
+   ========================================================================== */
+.blog-page {
+    padding-top: 34px;
+    padding-bottom: 120px;
+}
+
+.blog-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px; /* Отступ до рубрик */
+}
+
+.blog-intro__title {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 53px;
+    color: #333333;
+    max-width: 400px;
+}
+
+.blog-intro__desc {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    color: #666666;
+    max-width: 752px;
+}
+
+/* ==========================================================================
+   Секция 2: Рубрикатор
+   ========================================================================== */
+.blog-categories {
+    margin-bottom: 50px;
+}
+
+.blog-categories__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    margin-bottom: 24px;
+    color: #333333;
+}
+
+/* Скролл-контейнер для рубрик */
+.categories-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    /* Скрываем скроллбар */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.categories-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.categories-track {
+    display: flex;
+    gap: 9px;
+    padding-bottom: 5px; /* Для тени при ховере, если будет */
+}
+
+/* Кнопка-рубрика (Pill) */
+.category-pill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 24px;
+    height: 52px;
+    
+    background: #FFFFFF;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap; /* Текст в одну строку */
+    
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #565656;
+    line-height: 24px;
+    
+    transition: background 0.2s, color 0.2s;
+}
+
+.category-pill:hover {
+    background: #f0f0f0;
+}
+
+/* Активное состояние */
+.category-pill.active {
+    background: #68B51C;
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   Секция 3: Сетка статей
+   ========================================================================== */
+.blog-grid {
+    display: grid;
+    /* 3 колонки по 516px + отступы 18px = 1584px */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    row-gap: 34px;
+}
+
+/* Карточка статьи */
+.blog-card {
+    width: 516px; /* Фиксированная ширина из Figma */
+    height: 522px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Блок картинки (верхняя часть) */
+.blog-card__image-box {
+    position: relative;
+    width: 516px;
+    height: 322px;
+    overflow: hidden;
+}
+
+.blog-card__image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Теги внутри картинки (скролл) */
+.card-tags-scroll {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    right: 14px; /* Чтобы скролл работал до правого края */
+    
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    overflow-x: auto;
+    
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.card-tags-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.card-tag {
+    background: #F7F7F7; /* Белый фон на картинке не читается, нужен контраст или из макета F7F7F7 */
+    border-radius: 14px;
+    padding: 14px 24px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    
+    font-size: 14px;
+    font-weight: 400;
+    color: #565656;
+    flex-shrink: 0; /* Не сжимать */
+}
+
+/* Контент карточки (нижняя часть) */
+.blog-card__content {
+    padding: 14px 33px 34px 33px; /* Из макета Frame 226 */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.blog-card__meta {
+    margin-bottom: 14px;
+}
+
+.blog-card__title {
+    font-size: 24px;
+    font-weight: 400;
+    color: #333333;
+    line-height: 29px;
+    margin: 0 0 14px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ограничение в 2 строки (если нужно) */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.blog-card__date {
+    font-size: 20px;
+    font-weight: 400;
+    color: #999999;
+    line-height: 24px;
+    display: block;
+}
+
+.blog-card__excerpt {
+    font-size: 20px;
+    font-weight: 400;
+    color: #565656;
+    line-height: 24px;
+    margin: 0;
+    /* Ограничение текста */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   Адаптивность
+   ========================================================================== */
+@media (max-width: 1600px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+    .blog-card {
+        width: 100%;
+        max-width: 516px;
+    }
+}
+
+@media (max-width: 900px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    .blog-intro {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
