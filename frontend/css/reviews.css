@@ -186,34 +186,165 @@ body {
 }
 
 /* ==========================================================================
-   Адаптивность
+   Адаптивность для мобильных устройств (ширина экрана до 768px)
    ========================================================================== */
-@media (max-width: 1600px) {
-    .reviews-main-grid {
-        grid-template-columns: 1fr 2fr;
-        width: 100%;
-    }
-    .reviews-widget-box, .reviews-scroll-container {
-        width: 100%;
-    }
-}
-
-@media (max-width: 1100px) {
-    .reviews-main-grid {
-        grid-template-columns: 1fr;
-    }
-    .letters-grid {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
 
 @media (max-width: 768px) {
-    .reviews-intro {
-        flex-direction: column;
-        gap: 20px;
+    
+    .container {
+        padding: 0 22px; 
     }
-    .reviews-page {
-        padding-top: 80px;
+
+    /* --- Секция 1: Intro --- */
+    .reviews-intro {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 22px;
+        margin-bottom: 22px; /* Увеличим отступ, чтобы не слипалось */
+    }
+
+    .reviews-intro__title {
+        font-size: 34px;
+        line-height: 41px;
+        max-width: none; /* Убираем ограничение, чтобы заголовок занимал всю ширину */
+    }
+
+    /* Объединяем два абзаца в один с помощью CSS */
+    .reviews-intro__mission {
+        max-width: none;
+        line-height: 15px;
+    }
+    .reviews-intro__mission p {
+        display: inline;
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .reviews-intro__mission p:first-child::after {
+        content: " ";
+    }
+    
+    /* --- Секция 2: Основная сетка --- */
+    .reviews-main-grid {
+        display: flex;
+        flex-direction: column; 
+        gap: 24px;
+        margin-bottom: 34px;
+    }
+
+    /* ИСПРАВЛЕНИЕ 1: Убираем фиксированную высоту у блока с виджетом */
+    .reviews-widget-box {
+        width: 100%;
+        height: auto; /* <--- Вот главное исправление для отступа */
+    }
+
+    .reviews-widget-box img {
+        width: 100%; 
+        max-width: 350px;
+        height: auto; /* Высота подстраивается под ширину */
+        min-height: 0; /* Сбрасываем min-height, он больше не нужен */
+        object-fit: cover;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* --- Правая колонка: Другие отзывы --- */
+    .reviews-right-col {
+        width: 100%;
+        max-width: 350px;
+        height: 408px;
+        background: #FFFFFF;
+        border-radius: 10px;
+        padding: 24px 14px 20px 14px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        
+        display: flex;
+        flex-direction: column;
+    }
+
+    .other-reviews-title {
+        font-size: 34px;
+        line-height: 41px;
+        margin: 0 0 14px 0;
+        max-width: 307px;
+    }
+
+    .reviews-scroll-container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        overflow-y: auto;
+        padding-right: 5px; 
+        scrollbar-width: none;
+    }
+    .reviews-scroll-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* ИСПРАВЛЕНИЕ 2 (Шаг 1): Исправляем опечатку и центрируем по вертикали */
+    .review-item {
+        width: 100%;
+        height: 60px; /* Родитель 60px */
+        border: 0.5px solid #E2E2E2;
+        border-radius: 6.65px;
+        flex-shrink: 0;
+        
+        display: flex;
+        align-items: center; /* <-- БЫЛО: left, СТАЛО: center */
+        justify-content: flex-start; 
+        box-sizing: border-box;
+        padding: 5px; /* Даем внутренний отступ, чтобы картинка не прилипала */
+    }
+
+    /* ИСПРАВЛЕНИЕ 2 (Шаг 2): Правильно задаем размер картинки */
+    .review-item img {
+        height: 50px;   /* Ребенок 50px */
+        width: auto;    /* Ширина подстраивается сама */
+        max-width: 100%; /* Но не может быть шире родителя */
+        object-fit: unset; /* <-- Сбрасываем object-fit, он мешает */
+    }
+
+    /* --- Секция 3: Благодарственные письма --- */
+    .letters-section {
+        margin-bottom: 60px;
+    }
+
+    .letters-title {
+        font-size: 34px;
+        line-height: 41px;
+        margin: 0 0 24px 0;
+    }
+
+    .letters-grid {
+        display: flex;
+        flex-direction: row; 
+        gap: 8px;
+        overflow-x: auto;
+        
+        margin-right: -22px; 
+        padding-right: 22px;
+        padding-bottom: 10px; 
+        
+        scrollbar-width: none;
+    }
+    .letters-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .letter-item {
+        width: 173px;
+        height: 230px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .letter-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 }

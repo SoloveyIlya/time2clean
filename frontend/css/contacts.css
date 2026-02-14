@@ -335,48 +335,245 @@ body {
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05); 
 }
 
-/* --- АДАПТИВНОСТЬ для карты --- */
-@media (max-width: 992px) {
-    .map-header {
+/* ==========================================================================
+   Адаптивность для мобильных устройств (ширина экрана до 768px)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    .contacts-wrapper {
+        padding: 0 22px;
+    }
+
+    /* --- Секция 1: Intro --- */
+    .contacts-intro {
+        margin-bottom: 0px;
+        padding-top: 30px;
+    }
+
+    .contacts-intro .contacts-wrapper {
         flex-direction: column;
         align-items: flex-start;
+        gap: 12px;
+    }
+
+    .intro-title {
+        font-size: 34px;
+        line-height: 1;
+        margin-bottom: 5px;
+    }
+
+    .intro-description {
+        font-size: 14px;
+        line-height: 17px;
+        max-width: 328px;
+        text-align: left;
+        margin: 0;
+    }
+
+    /* --- Секция 2: Форма --- */
+    .form-section {
+        margin-bottom: 64px;
+    }
+
+    .form-wrapper {
+        padding: 30px 20px;
+        border-radius: 20px;
+        max-width: 350px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden; 
+        min-height: 726px; /* Высота блока по макету */
+    }
+
+    /* 7. Настройка заднего фона (картинки) */
+    .form-bg-logo {
+        width: 160%; /* Размер картинки */
+        /* Позиционирование */
+        position: absolute;
+        top: 28%;      /* Двигаем вверх/вниз */
+        left: 50%;     /* Двигаем влево/вправо */
+        transform: translate(-50%, 0); /* Центрируем по горизонтали */
+        opacity: 1;
+    }
+
+    /* --- FLEX-МАГИЯ: Перестановка элементов --- */
+    .form-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Раскрываем контейнеры, чтобы управлять порядком элементов */
+    .form-header, 
+    .form-footer {
+        display: contents; 
+    }
+
+    /* ПОРЯДОК 1: Заголовок */
+    .form-header__left {
+        order: 1;
+        margin-bottom: 0px;
+    }
+
+    .form-title {
+        font-size: 34px;
+        line-height: 1;
+        margin-bottom: 15px;
+        max-width: 250px; /* Перенос "Time2Clean" */
+        word-wrap: break-word;
+    }
+    
+    .form-subtitle {
+        font-size: 14px;
+        line-height: 17px;
+        color: #333333;
+    }
+
+    /* ПОРЯДОК 2: Поля ввода */
+    .feedback-form {
+        order: 2;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+        width: 100%;
+    }
+
+    /* 2. Высота полей ввода (одинаковая) */
+    .form-input, 
+    .feedback-form .form-textarea {
+        height: 57px !important; /* Принудительная высота */
+        min-height: 57px !important;
+        background: rgba(247, 247, 247, 0.8);
+        border: 2px solid #FFFFFF;
+        border-radius: 10px;
+        font-size: 14px;
+        width: 100% !important;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+    
+    /* Центрирование текста в textarea */
+    .feedback-form .form-textarea {
+        padding-top: 18px; 
+        resize: none;
+        line-height: 1.2;
+    }
+
+    /* 3. Высота кнопки - 62px */
+    .form-submit-btn {
+        height: 62px !important; /* Принудительная высота */
+        min-height: 62px !important;
+        width: 100% !important;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    /* ПОРЯДОК 3: Политика (Галочка) */
+    .policy-agreement {
+        order: 3;
+        margin-bottom: 0px;
+        width: 100%;
+        
+        /* 4. Выравнивание по верхнему краю */
+        align-items: flex-start; 
+        gap: 12px;
+    }
+    
+    /* Уменьшаем галочку на мобильных для идеального выравнивания с текстом */
+    .policy-checkbox-label {
+        width: 26px;   /* Было 32px */
+        height: 26px;  /* Было 32px */
+        min-width: 26px; 
+        border-radius: 6px;
+        margin-top: 0; /* Убираем лишние отступы */
+        flex-shrink: 0;
+    }
+    
+    .policy-checkbox-label img {
+        width: 16px; /* Уменьшаем иконку внутри */
+    }
+
+    .policy-text {
+        font-size: 12px;
+        line-height: 1.4; /* Настраиваем высоту строки текста под галочку */
+        color: #8C8C8C;
+        margin: 0;
+        /* Небольшая компенсация, чтобы текст стоял ровно напротив центра галочки */
+        padding-top: 2px; 
+    }
+
+    /* ПОРЯДОК 4: Контакты (Вниз) */
+    .form-header__right {
+        order: 4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 0px;
+        width: 100%;
+    }
+
+    /* 5. Телефон и почта */
+    .contact-link {
+        font-size: 24px;
+        line-height: 1.2;
+        color: #68B51C;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    /* ПОРЯДОК 5: Соцсети */
+    .form-socials {
+        order: 5;
+        width: 100%;
+        /* 6. По центру */
+        justify-content: center;
         gap: 20px;
     }
     
-    .map-address-text {
-        text-align: left;
+    .social-icon img {
+        width: 44px;
+        height: 44px;
     }
-    
-    .map-title {
-        font-size: 32px;
-    }
-    
-    .map-container {
-        height: 300px; /* На мобильных карту делаем пониже */
-    }
-}
 
-/* =========================================
-   АДАПТИВНОСТЬ
-   ========================================= */
-@media (max-width: 1600px) {
-    .contacts-wrapper { width: 100%; padding: 0 20px; }
-}
-@media (max-width: 992px) {
-    .contacts-intro .contacts-wrapper, .form-header, .feedback-form, .form-footer, .address-wrapper {
+    /* --- Остальные секции --- */
+    .address-section {
+        padding: 40px 0;
+        margin-bottom: 64px;
+    }
+    .address-wrapper {
         flex-direction: column;
-        gap: 30px;
+        gap: 40px;
     }
-    .form-header__right, .form-socials { align-items: flex-start; }
-    
-    /* Делаем инпуты на всю ширину на планшетах/телефонах */
-    .form-input, 
-    .feedback-form .form-textarea, 
-    .form-submit-btn { 
-        width: 100% !important; 
+    .address-title {
+        font-size: 34px;
     }
-    
-    
-    .contact-link { font-size: 32px; }
-    .form-footer { align-items: flex-start; }
+    .address-text {
+        font-size: 14px;
+    }
+    .map-section .contacts-wrapper {
+        gap: 20px;
+    }
+    .map-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .map-title {
+        font-size: 28px;
+        
+    }
+    .map-address-text {
+        font-size: 14px;
+        text-align: left;
+        line-height: 1.2;
+    }
+    .map-container {
+        height: 300px;
+    }
 }

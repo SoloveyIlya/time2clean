@@ -256,6 +256,10 @@ body {
     line-height: 26px;
 }
 
+.mobile-br {
+    display: none;
+}
+
 /* ===========================
    Адаптивность (Mobile)
    =========================== */
@@ -264,7 +268,7 @@ body {
     /* Перестраиваем в колонку на планшетах */
     .faq-section {
         flex-direction: column;
-        gap: 30px;
+        gap: 12px;
     }
     
     .faq-section__header {
@@ -275,22 +279,47 @@ body {
     .faq-list {
         width: 100%;
     }
+
+    
 }
 
 @media (max-width: 768px) {
+    .faq-sections-wrapper {
+        gap: 34px;
+    }
+    .mobile-br {
+        display: inline;
+    }
+
+    .faq-page__title {
+        font-size: 34px;
+        line-height: 1.3;
+        margin-bottom: 22px;
+    }
+
+    .faq-icon-box {
+        width: 32px;
+        height: 32px;
+    }
+
+    .faq-icon-box img {
+        width: 18px;
+        height: 18px;
+    }
+
     .faq-page {
         padding-top: 100px;
         padding-bottom: 60px;
     }
 
     .faq-page__title {
-        font-size: 32px;
+        font-size: 34px;
         line-height: 1.2;
-        margin-bottom: 40px;
+        margin-bottom: 22px;
     }
 
     .faq-section__title {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .faq-item__header {
@@ -299,7 +328,7 @@ body {
     }
 
     .faq-item__question {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 1.3;
     }
 
@@ -308,7 +337,59 @@ body {
     }
 
     .faq-item__content p {
-        font-size: 16px;
+        font-size: 14px;
         padding-bottom: 20px;
     }
+
+    /* ==========================================================================
+    Адаптивность для секции заказа (CTA)
+    ========================================================================== */
+
+    .order-section {
+        padding-top: 20px; /* Уменьшаем верхний отступ на мобильных */
+    }
+
+    .cta-banner {
+        height: 251px; /* Уменьшаем высоту баннера */
+        border-radius: 14px; /* Сделаем скругление как у других мобильных элементов */
+    }
+
+    .cta-bg-image {
+        object-fit: cover;
+        /* Смещаем фокус картинки, чтобы были видны лимоны на узком экране */
+        object-position: 50% right;
+    }
+
+    .cta-title {
+        font-size: 16px; /* Уменьшаем шрифт заголовка */
+        line-height: 1.2;
+        max-width: none; /* Убираем ограничение по ширине */
+        
+        /* Устанавливаем мобильные отступы */
+        margin-top: 75px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .cta-btn {
+        /* Используем left/right для растягивания кнопки с отступами - это надежнее, чем calc() */
+        left: 20px;
+        right: 20px;
+        bottom: 20px; /* Уменьшаем нижний отступ */
+        width: auto; /* Сбрасываем ширину, чтобы left/right сработали */
+        transform: none; /* Убираем центрирование через transform */
+        
+        height: 62px; /* Стандартная высота для мобильных кнопок */
+    }
+
+    .cta-btn img {
+        width: 22px; /* Уменьшаем иконку */
+        height: 22px;
+    }
+
+    .cta-btn span {
+        font-size: 16px; /* Уменьшаем текст на кнопке */
+    }
+            
 }
+

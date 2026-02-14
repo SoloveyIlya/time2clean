@@ -128,8 +128,7 @@ body {
 }
 
 .history-img-box {
-    width: 650px;
-    height: 745px;
+    aspect-ratio: 650 / 745;
     background: #E8E8E8;
     border-radius: 20px;
     overflow: hidden;
@@ -403,7 +402,7 @@ body {
 .cta-banner {
     position: relative;
     width: 100%;
-    height: 356px;
+    aspect-ratio: 1584 / 356;
     border-radius: 20px;
     overflow: hidden;
     background: #FFFFFF;
@@ -467,41 +466,124 @@ body {
     line-height: 26px;
 }
 
+.mobile-img {
+    display: none; /* Скрыто на ПК */
+    width: 100%;
+    margin: 12px 0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
 /* =========================================
-   АДАПТИВНОСТЬ (Общий блок)
+   АДАПТИВНОСТЬ
    ========================================= */
 
 /* --- Планшеты и небольшие десктопы --- */
 @media (max-width: 1600px) {
-    /* Общие обертки */
     .company-wrapper,
     .saving-time-wrapper,
     .stats-wrapper,
     .order-wrapper {
         width: 100%;
         padding: 0 20px;
+        box-sizing: border-box;
     }
 
-    /* Секция "Экономим время" */
     .time-card--small, 
     .time-card--large {
         width: 100%;
     }
 
-    /* Секция "Статистика" */
     .feature-card {
-        width: calc(50% - 9px); /* Резиновая ширина */
+        width: calc(50% - 9px);
         height: auto;
         min-height: 240px;
     }
 }
 
+.mobile-text-insert {
+    display: none;
+
+}
+
+
 /* --- Мобильные устройства --- */
 @media (max-width: 992px) {
-    /* Секция "О компании" */
-    .company-section {
-        padding-top: 40px;
-        padding-bottom: 40px;
+
+    .stats-action-btn {
+        font-size: 16px;
+        height: 62px;
+
+    }
+
+
+
+    .feature-icon-box img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .feature-icon-box img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .time-card__check {
+        width: 18px;
+        font-size: 18px;
+    }
+/* Скрываем картинку в заголовке (левая колонка) */
+    .desktop-img {
+        display: none; 
+    }
+
+    /* Показываем картинку внутри текста (после 2-го абзаца) */
+    .mobile-img {
+        display: block;
+        height: auto; /* Сброс фиксированной высоты */
+    }
+
+    /* Настройка контейнера картинки для сохранения пропорций */
+    .history-img-box {
+        width: 100%;
+        height: auto; /* Главное изменение: высота по содержимому */
+        min-height: 0; /* Убираем минимальные ограничения, если были */
+    }
+
+    .history-img {
+        width: 100%;
+        height: auto; /* Картинка сохраняет пропорции */
+        display: block; /* Убирает лишние отступы снизу */
+    }
+
+    /* Остальные стили блока, которые уже были, оставляем как есть */
+    .history-container {
+        flex-direction: column;
+        height: auto;
+        gap: 0; /* Отступ заголовка от текста */
+        margin-bottom: 40px;
+    }
+
+    .history-headers {
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    /* ЗАДАЧА 4: Логика перестановки текста */
+    .mobile-text-insert {
+        display: block; /* Показываем текст внутри сетки */
+        text-align: center;
+    }
+    .desktop-only {
+        display: none; /* Скрываем текст в заголовке */
+    }
+
+    /* ЗАДАЧА 1: Уменьшение отступов (padding/margin/gap) */
+    .company-section, 
+    .saving-time-section,
+    .stats-section,
+    .order-section {
+        padding-bottom: 20px; /* Было 120px */
     }
 
     .company-row-top,
@@ -509,10 +591,15 @@ body {
     .history-container {
         flex-direction: column;
         height: auto;
-        gap: 30px;
-        margin-bottom: 40px;
+        gap: 12px; /* Уменьшенный отступ между блоками */
+        margin-bottom: 12px; /* Было больше */
     }
 
+    .saving-time__header {
+        margin-bottom: 30px;
+    }
+
+    /* Адаптация ширин */
     .page-title,
     .mission-text,
     .goal-left,
@@ -522,78 +609,184 @@ body {
         width: 100%;
     }
 
-    .history-headers {
-        height: auto;
-        margin-bottom: 20px;
+    .page-title{
+        max-width: 300px;
     }
 
+    /* Блок История */
+    .history-headers {
+        height: auto;
+        margin-bottom: 15px;
+    }
     .history-h2,
     .history-subtitle {
         position: static;
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
+    }
+    .history-h2{
+        font-size: 28px;
+    }
+
+    .history-subtitle{
+        font-size: 16px;
     }
 
     .history-img-box {
         width: 100%;
-        height: 400px;
+        margin: 0;
+        padding: 0;
+
+        
+    }
+
+    .page-title {
+        font-size: 34px; /* Было 44px */
+        line-height: 1.2;
+        width: 100%;
+    }
+
+    /* Текст миссии */
+    .mission-text {
+        font-size: 14px; /* Было 24px */
+        line-height: 1.4;
+        width: 100%;
+    }
+
+    /* Текст целей */
+    .goal-left{
+        font-size: 14px; /* Было 24px */
+        line-height: 1.4;
+        width: 100%;
+    }
+
+    .goal-right {
+        font-size: 24px; /* Было 24px */
+        line-height: 1.4;
+        width: 100%;
+    }
+
+    /* Заголовок "Мы экономим ваше время" */
+    .saving-time__header {
+        margin-bottom: 30px;
+    }
+    .saving-time__title {
+        font-size: 34px; /* Было 44px */
+        line-height: 1.2;
+    }
+    .saving-time__subtitle {
+        font-size: 14px; /* Было 24px */
+        line-height: 1.4;
+    }
+    
+    /* Текст внутри блока (Задача 4) */
+    .saving-time__description {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* ЗАДАЧА 2: Уменьшение шрифта в большом блоке текста */
+    .history-right-col p {
+        font-size: 14px; /* Было 24px */
+        line-height: 1.4;
+    }
+    .history-right-col {
+        gap: 14px; /* Отступы между абзацами */
     }
 
     /* Секция "Экономим время" */
+    .saving-time__grid {
+        gap: 12px; /* ЗАДАЧА 1: Уменьшен gap */
+    }
     .saving-time__row {
         flex-direction: column;
-        gap: 18px;
+        gap: 12px; /* ЗАДАЧА 1: Уменьшен gap */
     }
-    
     .time-card {
         height: auto;
-        min-height: 100px;
+        min-height: 90px;
+        padding: 20px;
     }
-
-    .saving-time__title {
-        font-size: 32px;
-        line-height: 1.2;
-    }
-
-    .saving-time__subtitle,
-    .saving-time__description,
     .time-card__text {
-        font-size: 18px;
+        font-size: 16px;
+        line-height: 1.3;
+    }
+    .saving-time__description {
+        font-size: 14px;
         line-height: 1.4;
     }
 
     /* Секция "Статистика" */
     .features-row {
         flex-direction: column;
-        gap: 18px;
+        gap: 12px;
     }
-    
     .feature-card {
         width: 100%;
+        padding: 25px;
+        min-height: auto;
+    }
+    .feature-card__text {
+        font-size: 14px;
     }
 
+    /* ЗАДАЧА 3: Последние карточки (статистика) в 2 столбца */
     .stats-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr; /* 2 столбца */
+        gap: 10px; /* Уменьшенное расстояние */
     }
-    
     .stat-card {
+        padding: 15px;
         height: auto;
-        padding: 24px;
+        min-height: 120px;
+        align-items: center;
+        text-align: center;
+    }
+    .stat-number {
+        font-size: 34px;
+        line-height: 1.2;
+    }
+    .stat-label {
+        font-size: 14px;
+        line-height: 1.2;
     }
 
     /* Секция "Заказ" */
     .cta-banner {
-        height: auto;
-        padding-bottom: 120px;
+        height: 250px;
+        padding-bottom: 0px;
+        margin-bottom: 0;
+        
+    }
+    .cta-title {
+        font-size: 16px;
+        line-height: 1.2;
+        margin-top: 70px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .cta-btn {
+        height: 62px;
+        left: 20px;
+        right: 20px;
+        bottom: 30px;
+    }
+    .cta-btn span {
+        font-size: 16px;
+    }
+    .cta-btn img {
+        width: 22px;
+        height: 22px;
     }
 
-    .cta-title {
-        font-size: 32px;
-        line-height: 1.2;
-        margin-top: 40px;
+    .cta-bg-image {
+        object-fit: cover;
+        /* можно менять */
+        object-position: 50% right;
+
     }
-    
-    .cta-btn {
-        height: 60px;
+
+    .feature-card__title {
+        font-size: 16px;
     }
-}
+}   

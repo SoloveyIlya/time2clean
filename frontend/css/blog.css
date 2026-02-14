@@ -132,7 +132,7 @@ body {
 /* Карточка статьи */
 .blog-card {
     width: 516px; /* Фиксированная ширина из Figma */
-    height: 522px;
+    max-height: 522px;
     background: #FFFFFF;
     border-radius: 20px;
     overflow: hidden;
@@ -243,6 +243,8 @@ body {
 /* ==========================================================================
    Адаптивность
    ========================================================================== */
+
+/* Планшеты и небольшие десктопы */
 @media (max-width: 1600px) {
     .blog-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -251,15 +253,149 @@ body {
     .blog-card {
         width: 100%;
         max-width: 516px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Контейнер карточки */
+    .blog-card__content {
+        padding: 12px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .blog-card__meta {
+        margin-bottom: 4px;
+    }
+
+    .blog-card__title {
+        font-size: 18px;
+        line-height: 1.3;
+        margin: 0 0 8px 0;
+    }
+
+    .blog-card__date {
+        font-size: 12px;
+        line-height: 1.2;
+        margin-bottom: 0px;
+    }
+
+    .blog-card__excerpt {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    .card-tags-scroll {
+        gap: 4px;
+        padding: 4px 0;
     }
 }
 
+/* Мобильные устройства */
 @media (max-width: 900px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .blog-card {
+        display: flex;
+        flex-direction: column;
+        height: auto;          
+        max-height: 394px;
+        overflow: hidden;
+    }
+
+    /* Картинка занимает половину карточки */
+    .blog-card__image-box {
+        width: 100%;
+        height: 60%;      /* ровно половина */
+        max-height: 200px; /* ограничение */
+        flex-shrink: 0;
+    }
+    .blog-card__image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Теги вертикально */
+    .card-tags-scroll {
+        flex-direction: column;
+        align-items: flex-start;
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: 150px;
+        gap: 4px;
+        padding: 4px 0;
+    }
+
+    /* Контент карточки */
+    .blog-card__content {
+        padding: 12px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        overflow: hidden;
+    }
+
+    /* Отступы между блоками внутри карточки */
+    .blog-card__meta {
+        margin-bottom: 12px;
+    }
+    .blog-card__title {
+        font-size: 18px;
+        line-height: 1.3;
+        margin: 0 0 8px 0;
+    }
+    .blog-card__date {
+        font-size: 12px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+    .blog-card__excerpt {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    /* Сетка и остальные элементы */
     .blog-grid {
         grid-template-columns: 1fr;
     }
     .blog-intro {
         flex-direction: column;
         gap: 20px;
+        margin-bottom: 38px;
+    }
+    .blog-intro__title{
+        font-size: 34px;
+    }
+    .blog-intro__desc{
+        font-size: 14px;
+    }
+    .blog-categories__title{
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+    .card-tag{
+        font-size: 16px;
+        max-height: 41px;
+    }
+    .blog-card__excerpt{
+        font-size: 14px;
+    }
+    .category-pill{
+        font-size: 12px;
+        height: 38px;
+    }
+    .blog-card__date{
+        font-size: 12px;
+    }
+    .blog-categories {
+        margin-bottom: 22px;
     }
 }
