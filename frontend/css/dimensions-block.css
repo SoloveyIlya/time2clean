@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Стили для Секции "Размеры"
+   ========================================================================== */
+
+body{
+
+    margin: 0;
+    padding: 0;
+}
+
+/* Сброс box-sizing для изоляции компонента */
+.dimensions-section * {
+    box-sizing: border-box;
+}
+
+.dimensions-section {
+    width: 100%;
+    background-color: #F7F7F7; 
+    padding-top: 0; 
+    padding-bottom: 140px; 
+    font-family: 'PT Sans', sans-serif; 
+}
+
+/* Контейнер 1584px */
+.dimensions-container {
+    max-width: 1584px;
+    width: 100%;
+    margin: 0 auto;
+    
+    display: flex;
+    /* ИСПРАВЛЕНО: space-between автоматически создаст отступ в 9px, 
+       так как (305 + 1270) = 1575px, а контейнер 1584px. */
+    justify-content: space-between; 
+    align-items: flex-start; 
+}
+
+/* --- Левая колонка (Текст) --- */
+.dimensions-content {
+    /* Фиксированная ширина текста */
+    width: 305px;
+    /* Запрещаем тексту сжиматься */
+    flex-shrink: 0; 
+    margin-top: 0; 
+}
+
+.dimensions-title {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 53px;
+    color: #333333;
+    /* Отступ снизу */
+    margin: 0 0 24px 0; 
+}
+
+.dimensions-description {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #565656;
+    margin: 0;
+}
+
+/* --- Правая колонка (Изображение) --- */
+.dimensions-image-wrapper {
+    /* ИСПРАВЛЕНО: Жесткая ширина */
+    width: 1270px;
+    /* ИСПРАВЛЕНО: Запрет на сжатие, чтобы Flexbox не уменьшал её */
+    min-width: 1270px; 
+    flex-shrink: 0;
+
+    height: 800px;
+    border-radius: 0px; 
+    overflow: hidden;
+}
+
+.dimensions-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+/* ==========================================================================
+   Адаптивность
+   ========================================================================== */
+
+/* 1. Как только экран становится меньше контента (1584px + отступы скролла) */
+@media (max-width: 1620px) {
+    .dimensions-container {
+        /* Переключаемся на вертикальный режим, так как 1584px не влезают в экран */
+        flex-direction: column;
+        align-items: center; /* Центрируем контент */
+        padding: 0 20px;     /* Безопасные отступы по бокам */
+        gap: 40px;           /* Отступ между текстом и фото */
+    }
+
+    .dimensions-content {
+        width: 100%;
+        max-width: 1270px; /* Чтобы текст не разлетался слишком широко над фото */
+        text-align: left;
+    }
+
+    .dimensions-image-wrapper {
+        /* Сбрасываем жесткие размеры для адаптива */
+        width: 100%;
+        min-width: 0; /* Разрешаем сжиматься */
+        max-width: 1270px;
+        
+        height: auto; 
+        aspect-ratio: 1270 / 800; /* Сохраняем пропорции */
+    }
+}
+
+/* 2. Мобильные устройства */
+@media (max-width: 768px) {
+    .dimensions-section {
+        padding-bottom: 60px; 
+    }
+
+    .dimensions-title {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 16px;
+    }
+
+    .dimensions-description {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+    
+    .dimensions-image-wrapper {
+        /* На мобильных можно чуть изменить пропорции или высоту, если нужно */
+        aspect-ratio: auto;
+        height: 300px; 
+    }
+}

@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Стили для Секции Портфолио (До/После)
+   ========================================================================== */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Сброс для изоляции компонента */
+.portfolio-section * {
+    box-sizing: border-box;
+}
+
+.portfolio-section {
+    width: 100%;
+    background-color: #F7F7F7; /* Фон страницы */
+    padding-top: 0; /* Убрали отступ сверху */
+    padding-bottom: 120px; /* Отступ снизу */
+    font-family: 'PT Sans', sans-serif;
+}
+
+/* Контейнер */
+.portfolio-container {
+    max-width: 1584px;
+    width: 100%;
+    margin: 0 auto;
+    /* Убираем padding, чтобы карточки встали ровно в 1584px */
+    padding: 0; 
+}
+
+/* Сетка карточек */
+.portfolio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    /* Расстояние между карточками */
+    gap: 20px; 
+    justify-content: flex-start; /* Выравнивание по левому краю */
+}
+
+/* --- КАРТОЧКА --- */
+.portfolio-card {
+    position: relative;
+    
+    /* РАСЧЕТ ШИРИНЫ:
+       (1584px ширина контейнера - 60px (это 3 отступа по 20px)) / 4 карточки = 381px
+    */
+    width: calc((100% - 60px) / 4); 
+    
+    /* Квадратная форма */
+    aspect-ratio: 1 / 1; 
+    
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #e0e0e0; /* Заглушка */
+    
+    /* Убираем синюю обводку на мобильных */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* --- ВНУТРЕННИЙ КОНТЕНТ (Слои) --- */
+.card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.4s ease; /* Плавность переключения */
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ --- */
+
+/* По умолчанию видим "ДО" */
+.card-content-before {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* По умолчанию "ПОСЛЕ" скрыто */
+.card-content-after {
+    opacity: 0;
+    z-index: 1;
+}
+
+/* При наведении (Hover) или фокусе (Tap) меняем местами */
+.portfolio-card:hover .card-content-before,
+.portfolio-card:focus .card-content-before {
+    opacity: 0; /* Скрываем "ДО" */
+    z-index: 1;
+}
+
+.portfolio-card:hover .card-content-after,
+.portfolio-card:focus .card-content-after {
+    opacity: 1; /* Показываем "ПОСЛЕ" */
+    z-index: 2;
+}
+
+/* --- БЕЙДЖИ (Плашки сверху) --- */
+.card-badge {
+    position: absolute;
+    top: 24px;
+    left: 25.5px;
+    height: 45px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 70px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-gray {
+    background: #EDF1F7;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #333333;
+    width: 158px; 
+}
+
+.badge-green {
+    background: #68B51C;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    width: 114px; 
+}
+
+/* --- НИЖНИЕ ИНДИКАТОРЫ (Полоски) --- */
+.card-bars {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    width: 100%;
+    padding: 0 25.5px;
+    
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.bar {
+    height: 5px;
+    flex-grow: 1; /* Растягиваем */
+    border-radius: 2px;
+}
+
+/* Активная полоска (Зеленая) */
+.bar-active {
+    background-color: #68B51C;
+}
+
+/* Неактивная полоска (Белая) */
+.bar-inactive {
+    background-color: #FFFFFF;
+}
+
+
+/* ==========================================================================
+   Адаптивность (Mobile & Tablet)
+   ========================================================================== */
+
+@media (max-width: 1600px) {
+    /* Если экран меньше 1584px, добавляем отступы контейнеру */
+    .portfolio-container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    /* На планшетах: 2 карточки в ряд */
+    .portfolio-card {
+        /* (100% - 20px gap) / 2 */
+        width: calc((100% - 20px) / 2);
+    }
+}
+
+@media (max-width: 600px) {
+    /* На мобильных: 1 карточка в ряд */
+    .portfolio-card {
+        width: 100%;
+    }
+    
+    .portfolio-section {
+        padding-bottom: 60px; /* Уменьшаем нижний отступ на мобильных */
+    }
+    
+    /* Немного уменьшаем элементы для мобилок */
+    .card-badge {
+        top: 20px;
+        left: 20px;
+        height: 38px;
+        font-size: 14px;
+        width: auto; /* Авто ширина */
+        padding: 0 16px;
+    }
+    
+    .card-bars {
+        bottom: 20px;
+        padding: 0 20px;
+    }
+}

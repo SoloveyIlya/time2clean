@@ -1,0 +1,165 @@
+/* ==========================================================================
+   Стили для блока CTA (Заказать уборку)
+   ========================================================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Общая обертка секции */
+.order-section {
+    background-color: #F7F7F7; /* Задний фон серый */
+    width: 100%;
+    /* Отступ сверху (небольшой, чтобы отделить от контента выше) */
+    padding-top: 0px; 
+    /* Отступ снизу 120px по требованию */
+    padding-bottom: 120px; 
+    
+    font-family: 'PT Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Ограничитель ширины контента (вместо общего .container) */
+.cta-container {
+    max-width: 1584px; /* Фиксированная максимальная ширина */
+    width: 100%;
+    margin: 0 auto;    /* Центрирование на странице */
+    padding: 0 0px;   /* Безопасные отступы по бокам для маленьких экранов */
+    box-sizing: border-box;
+}
+
+/* Сам баннер (белая плашка) */
+.cta-banner {
+    position: relative;
+    width: 100%;
+    height: 356px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+/* Фоновая картинка внутри баннера */
+.cta-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Заголовок */
+.cta-title {
+    position: relative;
+    z-index: 2;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 53px;
+    color: #333333;
+    
+    margin: 0;
+    margin-top: 64px;
+    margin-left: 34px;
+    max-width: 483px;
+}
+
+/* Кнопка */
+.cta-btn {
+    position: absolute;
+    z-index: 2;
+    bottom: 30px;
+    /* Центрирование по горизонтали */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Ширина кнопки на десктопе (100% минус боковые отступы) */
+    width: calc(100% - 68px); 
+    max-width: 1516px; /* Ограничение, чтобы не была шире контента */
+    height: 74px;
+    
+    background: #68B51C;
+    border-radius: 10px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: #5aa016;
+}
+
+.cta-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+.cta-btn span {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 26px;
+}
+
+/* ==========================================================================
+   Адаптивность (Mobile)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    
+    .order-section {
+        padding-top: 20px;
+        /* На мобильных обычно отступ снизу меньше, но если нужно строго 120px везде, оставьте 120px */
+        padding-bottom: 60px; 
+    }
+
+    .cta-container {
+        padding: 0 20px;
+    }
+
+    .cta-banner {
+        height: 251px; /* Уменьшенная высота */
+        border-radius: 14px;
+    }
+
+    .cta-bg-image {
+        /* Смещаем картинку, чтобы было видно лимоны справа */
+        object-position: 50% right;
+    }
+
+    .cta-title {
+        font-size: 16px;
+        line-height: 1.2;
+        max-width: none;
+        
+        margin-top: 75px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .cta-btn {
+        /* Растягиваем кнопку с отступами 20px */
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        width: auto;
+        transform: none; /* Убираем центрирование, так как используем left/right */
+        
+        height: 62px;
+    }
+
+    .cta-btn img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .cta-btn span {
+        font-size: 16px;
+    }
+}
