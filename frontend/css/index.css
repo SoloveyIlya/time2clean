@@ -16,7 +16,10 @@ body {
 .container {
     max-width: 1584px;
     width: 100%;
+
+    padding: 0 20px;
     margin: 0 auto;
+    
     position: relative;
     /* Чтобы высота контейнера растягивалась */
     flex-grow: 1;
@@ -30,7 +33,7 @@ body {
 .services-section {
     position: relative;
     width: 100%;
-    min-height: 780px;
+    padding: 274px 0 120px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,7 +55,7 @@ body {
 }
 
 .services-title {
-    margin-top: 274px;
+    margin-top: 0;
     margin-bottom: 34px;
     font-family: 'SF Pro', 'PT Sans', sans-serif;
     font-size: 44px;
@@ -73,7 +76,6 @@ body {
     scroll-behavior: smooth;
     /* Исправляем обрезку при наведении */
     padding: 10px 5px 20px 5px; 
-    margin: -10px -5px 0 -5px;
     
     /* Скрываем скроллбар */
     -ms-overflow-style: none;
@@ -111,8 +113,7 @@ body {
 }
 
 .slider-arrow--prev {
-    right: 100%; 
-    margin-right: 20px;
+    left: -90px;
 }
 
 .slider-arrow--prev img {
@@ -120,14 +121,13 @@ body {
 }
 
 .slider-arrow--next {
-    left: 100%;
-    margin-left: 20px;
+    right: -90px;
 }
 
 /* --- Карточка услуги --- */
 .service-card {
-    flex: 0 0 254px;
-    width: 254px;
+    flex: 0 0 clamp(220px, 16vw, 254px);
+    width: clamp(220px, 16vw, 254px);
     height: 267px;
     background: #FFFFFF;
     border-radius: 14px;
@@ -258,8 +258,8 @@ body {
 
 /* Кнопка "Все услуги" */
 .services-action {
-    position: absolute;
-    bottom: 64px;
+    position: relative;
+    margin-top: 60px;
     left: 0;
     width: 100%;
 }
@@ -281,6 +281,167 @@ body {
 
 .btn-all-services:hover {
     background: #5aa016;
+}
+
+/* ==========================================================================
+   Адаптивность для секции Услуг (Mobile)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    
+    .services-section {
+        padding-top: 132px;
+        padding-bottom: 52px;
+    }
+
+    .services-title {
+        font-size: 34px;
+        line-height: 1.2;
+        margin-bottom: 14px;
+        text-align: left;
+    }
+
+    /* --- Скрываем элементы слайдера --- */
+    .slider-arrow {
+        display: none;
+    }
+
+    /* --- Перестройка трека в сетку --- */
+    .services-track {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 колонки */
+        
+        /* ПРАВКА 1: Отступы (row-gap 4px, column-gap 8px) */
+        gap: 4px 8px; 
+        
+        overflow: visible; 
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* --- Карточка услуги --- */
+    .service-card {
+        flex: none; 
+        width: 100%; 
+        
+        /* ПРАВКА 2: Фиксированная высота 130px */
+        height: 130px; 
+        min-height: 0; /* Сброс */
+        
+        /* ПРАВКА 3: Уменьшаем внутренние отступы для компактности */
+        padding: 10px; 
+        border-radius: 10px;
+        
+        /* Гарантируем flex-раскладку для прижатия футера */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* ПОКАЗЫВАЕМ ТОЛЬКО ПЕРВЫЕ 6 КАРТОЧЕК */
+    .service-card:nth-child(n+7) {
+        display: none;
+    }
+
+    /* --- Внутри карточки --- */
+    .service-card__top-group {
+        display: flex;
+        flex-direction: column;
+        /* ПРАВКА 3: Уменьшаем расстояние между шапкой и тегами */
+        gap: 6px; 
+    }
+
+    .service-card__header {
+        gap: 6px;
+        margin-bottom: 0; /* Убираем лишний отступ */
+        padding-right: 0;
+        position: relative;
+        align-items: flex-start; /* Выравнивание по верху */
+    }
+
+    /* Иконка услуги */
+    .service-icon-box {
+        width: 28px; /* Чуть меньше для компактности */
+        height: 28px;
+        border-radius: 6px;
+    }
+    .service-icon-box img {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Заголовок услуги */
+    .service-title {
+        font-size: 13px; /* Чуть меньше, чтобы влезало */
+        line-height: 1.1;
+        margin-top: 4px; /* Оптическое выравнивание с иконкой */
+    }
+
+    /* Стрелка внутри карточки */
+    .service-arrow-icon {
+        width: 5px;
+        height: 9px;
+        margin-left: auto;
+        margin-top: 5px;
+    }
+
+    /* --- Теги (Клинеры/Часы) --- */
+    .service-card__tags {
+        /* ПРАВКА 2: Выстраиваем в одну линию */
+        display: flex;
+        flex-direction: row; 
+        flex-wrap: nowrap; /* Запрещаем перенос */
+        gap: 4px;
+        margin-bottom: 0;
+        overflow: hidden; /* На случай длинного текста */
+    }
+
+    .tag {
+        height: 20px; /* Компактные теги */
+        padding: 2px 6px;
+        border-radius: 4px;
+        flex-shrink: 0; /* Чтобы не сжимались слишком сильно */
+    }
+    
+    .tag img {
+        width: 10px;
+        height: 10px;
+    }
+
+    .tag span {
+        font-size: 10px; /* Мелкий шрифт для тегов */
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    /* --- Футер карточки (Цена и кнопка) --- */
+    .service-card__footer {
+        /* ПРАВКА 3: Минимальные отступы */
+        gap: 2px;
+        margin-top: auto; 
+    }
+
+    .service-price {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+
+    .service-order-btn {
+        font-size: 13px;
+        line-height: 1.2;
+    }
+
+    /* Кнопка "Все услуги" внизу */
+    .services-action {
+        margin-top: 18px;
+    }
+    
+    .btn-all-services {
+        height: 60px;
+        font-size: 18px;
+    }
 }
 
 /* =========================================
@@ -356,6 +517,10 @@ body {
 .telegram-link img {
     width: 10px;
     height: auto;
+}
+
+.mobile-br {
+    display: none;
 }
 
 /* =========================================
@@ -529,6 +694,212 @@ body {
     background: #5aa016;
 }
 
+
+
+
+/* ==========================================================================
+   Адаптивность (Mobile & Tablet)
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    /* Планшеты: перестраиваем сетку преимуществ в 2 колонки */
+    .advantages-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .advantages-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .advantages-subtitle-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .license-block {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .btn-more {
+        width: 100%; /* Кнопка на всю ширину на планшетах */
+    }
+}
+
+@media (max-width: 768px) {
+    
+    /* --- Секция Telegram --- */
+
+    .mobile-br {
+        display: inline;
+    }
+     
+    .telegram-section {
+        height: auto;
+        padding: 15px 0; /* Небольшие отступы сверху и снизу */
+    }
+
+    .telegram-inner {
+        /* Оставляем в одну строку, как на картинке */
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between; /* Разносим по краям */
+        align-items: center;
+        flex-wrap: nowrap; /* Запрещаем перенос блоков на новую строку */
+        gap: 15px; /* Минимальное расстояние между текстом и кнопкой */
+    }
+    
+    /* ЛЕВАЯ ЧАСТЬ (Иконка + Текст) */
+    .telegram-left {
+        display: flex;
+        align-items: center;
+        gap: 12px; /* Отступ от иконки до текста */
+        flex: 1; /* Занимает все свободное место, поджимая текст если надо */
+    }
+
+    .telegram-icon-circle {
+        width: 24px; /* Чуть меньше десктопа */
+        height: 24px;
+        flex-shrink: 0; /* Иконка не сжимается */
+    }
+
+    .telegram-icon-circle img {
+        width: 12px;
+        height: auto;
+    }
+
+    .telegram-text {
+        font-size: 12px; /* Уменьшаем шрифт, чтобы влезло */
+        line-height: 1.2;
+        /* Если текст длинный, он перенесется на 2 строки, не ломая верстку */
+        word-wrap: break-word; 
+    }
+
+    /* ПРАВАЯ ЧАСТЬ (Ссылка + Стрелка) */
+    .telegram-link {
+        width: auto; /* Сбрасываем ширину 100% */
+        justify-content: flex-end; /* Прижимаем вправо */
+        padding-left: 0; /* Убираем лишние отступы */
+        gap: 8px; /* Расстояние между словом и стрелкой */
+        flex-shrink: 0; /* Ссылка не сжимается и не переносится */
+    }
+
+    .telegram-link span {
+        font-size: 14px; /* Размер шрифта ссылки */
+        line-height: 1;
+        white-space: nowrap; /* Текст "Подписаться" не переносится */
+    }
+    
+    .telegram-link img {
+        width: 6px; /* Аккуратная маленькая стрелка */
+        height: auto;
+    }
+
+    /* --- Секция Преимуществ --- */
+    .advantages-section {
+        padding-bottom: 60px;
+    }
+
+    /* Верхнее описание */
+    .product-description {
+        margin-bottom: 64px;
+        padding-top: 34px;
+    }
+
+    .product-description p {
+        font-size: 14px; /* Уменьшаем текст */
+        line-height: 1.4;
+    }
+
+    /* Обертка */
+    .advantages-wrapper {
+        margin-top: 0px;
+    }
+
+    /* Заголовок и подзаголовки */
+    .advantages-header {
+        margin-bottom: 24px;
+        gap: 15px;
+    }
+
+    .advantages-title {
+        font-size: 34px;
+        line-height: 1.2;
+    }
+
+    .subtitle-text {
+        font-size: 14px;
+        line-height: 1.4;
+        max-width: none;
+    }
+
+    /* Сетка карточек (1 колонка) */
+    .advantages-grid {
+        grid-template-columns: 1fr; /* Одна колонка */
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+
+    /* Карточка преимущества */
+    .advantage-card {
+        height: auto; /* Высота по содержимому */
+        min-height: auto;
+        padding: 20px;
+        border-radius: 14px;
+        gap: 10px;
+    }
+
+    .advantage-card__header {
+        gap: 12px;
+    }
+
+    .advantage-icon-box {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+    }
+
+    .advantage-icon-box img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .advantage-card__title {
+        font-size: 16px;
+        line-height: 1.2;
+    }
+
+    .advantage-card__text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* Блок лицензии */
+    .license-block {
+        padding: 20px;
+        border-radius: 14px;
+        gap: 20px;
+    }
+
+    .license-text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .btn-more {
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+}
+
+
+
 /* =========================================
    5. Секция "Узнайте подробнее про уборку"
    ========================================= */
@@ -652,8 +1023,9 @@ body {
 
 /* 3. Нижняя кнопка */
 .cleaning-action {
-    /* Ширина контейнера 1584px */
-    width: 1584px; 
+    width: 100%;
+    max-width: 1584px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
 }
@@ -1031,8 +1403,10 @@ body {
 }
 
 .about-image-wrapper {
-    width: 1584px;
+    width: 100%;
+    max-width: 1584px;
     height: 566px;
+    margin: 0 auto;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -1108,6 +1482,121 @@ body {
 .add-row--3 .add-card { width: calc((100% - 36px) / 3); }
 .add-row--2 .add-card { width: calc((100% - 18px) / 2); }
 
+/* ==========================================================================
+   Адаптивность (Mobile & Tablet)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    
+    /* --- Секция "О нас" --- */
+    .about-section {
+        padding-bottom: 60px;
+    }
+
+    .about-header {
+        margin-bottom: 22px;
+        padding: 0 10px;
+    }
+
+    .about-title {
+        font-size: 34px; /* Уменьшаем заголовок */
+        line-height: 1.2;
+    }
+
+    .about-subtitle {
+        font-size: 14px; /* Уменьшаем подзаголовок */
+        line-height: 1.4;
+    }
+
+    .about-cards-grid {
+        grid-template-columns: 1fr; /* Карточки в один столбец */
+        gap: 6px;
+        margin-bottom: 24px;
+    }
+
+    .about-card {
+        height: auto; /* Сбрасываем фиксированную высоту для мобильных */
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .about-card__top {
+        margin-bottom: 15px;
+        gap: 10px;
+    }
+
+    .about-icon-box {
+        width: 32px; /* Уменьшаем бокс иконки */
+        height: 32px;
+        border-radius: 8px;
+    }
+
+    .about-icon-box img {
+        width: 16px; /* Уменьшаем саму иконку */
+        height: 16px;
+    }
+
+    .about-card__title {
+        font-size: 16px; /* Уменьшаем шрифт заголовка карточки */
+        line-height: 1.2;
+    }
+
+    .about-card__text {
+        font-size: 14px; /* Уменьшаем основной текст карточки */
+        line-height: 1.4;
+    }
+
+    .about-image-wrapper {
+        height: 186px; /* Уменьшаем высоту, сохраняя видимость контента */
+        border-radius: 14px;
+    }
+
+    /* --- Секция Дополнительные услуги --- */
+    .additional-services-section {
+        padding-bottom: 60px;
+    }
+
+    .additional-title {
+        font-size: 34px;
+        line-height: 1.2;
+        margin-bottom: 22px;
+    }
+
+    .additional-grid {
+        gap: 12px;
+    }
+
+    .add-row {
+        flex-direction: column; /* Ряды превращаются в колонки */
+        gap: 12px;
+    }
+
+    /* Перебиваем расчеты ширины из десктопа */
+    .add-row--4 .add-card,
+    .add-row--3 .add-card,
+    .add-row--2 .add-card {
+        width: 100% !important; 
+    }
+
+    .add-card {
+        height: auto; /* Сбрасываем фиксированную высоту */
+        min-height: 115px;
+        padding: 20px;
+        gap: 12px; /* Уменьшаем расстояние между заголовком и текстом */
+        border-radius: 14px;
+    }
+
+    .add-card__title {
+        font-size: 16px;
+        line-height: 1.2;
+    }
+
+    .add-card__text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+}
+
 /* =========================================
    8. Секция Заказать уборку (CTA)
    ========================================= */
@@ -1120,8 +1609,10 @@ body {
 
 .cta-banner {
     position: relative;
-    width: 1584px;
+    width: 100%;
+    max-width: 1584px;
     height: 356px;
+    margin: 0 auto;
     border-radius: 20px;
     overflow: hidden;
     background: #FFFFFF;
@@ -1151,12 +1642,10 @@ body {
 }
 
 .cta-btn {
-    position: absolute;
-    z-index: 2;
+position: absolute;
     bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1516px;
+    left: 34px;
+    right: 34px;
     height: 74px;
     background: #68B51C;
     border-radius: 10px;

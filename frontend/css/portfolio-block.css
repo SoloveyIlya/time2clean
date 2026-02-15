@@ -6,6 +6,7 @@ body {
     padding: 0;
 }
 
+
 /* Сброс для изоляции компонента */
 .portfolio-section * {
     box-sizing: border-box;

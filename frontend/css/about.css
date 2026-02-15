@@ -13,10 +13,13 @@ body {
 .saving-time-wrapper,
 .stats-wrapper,
 .order-wrapper {
-    width: 1584px;
-    margin: 0 auto;
+    max-width: 1584px; /* максимум для больших экранов */
+    width: 100%;        /* автоматически подстраивается под экран */
+    margin: 0 auto;     /* центрирование */
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 20px;
 }
 
 /* =========================================
@@ -607,6 +610,7 @@ body {
     .history-left-col,
     .history-right-col {
         width: 100%;
+        max-width: 480px;
     }
 
     .page-title{

@@ -16,7 +16,7 @@ body {
     max-width: 1584px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 30px; /* Боковые отступы */
+    padding: 0 20px; /* Боковые отступы */
     box-sizing: border-box;
 }
 

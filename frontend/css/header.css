@@ -499,7 +499,7 @@ btn-all-services-mega__icon {
 /* 4. Сетка карточек (6 колонок по 244px) */
 .mega-menu__grid {
     display: grid;
-    grid-template-columns: repeat(6, 244px); 
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     column-gap: 12px;
     row-gap: 14px;
     margin-top: 34px; /* Расстояние от хедера меню до карточек */
@@ -507,7 +507,6 @@ btn-all-services-mega__icon {
 
 /* 5. Стили карточки услуги */
 .mega-menu__grid .service-card {
-    width: 244px;
     min-height: 267px; /* Высота может расти, если текст длинный */
     background: #FFFFFF;
     border-radius: 14px;
@@ -557,7 +556,7 @@ btn-all-services-mega__icon {
     line-height: 1.1; /* Уплотняем межстрочный интервал */
     white-space: normal; /* Разрешаем перенос */
     display: block;
-    max-width: 100px; /* Ограничиваем ширину, чтобы текст "сломался" на две строки */
+    max-width: 100%; /* Ограничиваем ширину, чтобы текст "сломался" на две строки */
 }
 
 /* Иконка-стрелка после текста */

@@ -32,4 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
             slides[index].classList.add('active');
         });
     });
+
+    const track = document.querySelector('.services-track');
+
+track.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    track.scrollLeft += e.deltaY;
+});
 });
